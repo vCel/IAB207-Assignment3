@@ -1,0 +1,273 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="styling/styles.css">
+    <link rel="icon" href="images/logo.png">
+    <title>Car Auction</title>
+  </head>
+  <body>
+
+    <!-- Navbar -->
+    <nav class="navbar sticky-top navbar-expand-md navbar-light bg-light"> 
+        <div class="container-fluid py-1">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <!-- Navbar items -->
+            <div class="collapse navbar-collapse justify-content-center" id="navbarResponsive">
+                <ul class="navbar-nav">
+                    <li class="nav-item active">
+                        <a href="index.html" class="nav-link">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="listings.html" class="nav-link">Listings</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="sell.html" class="nav-link">Sell My Car</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="account.html" class="nav-link">My Account</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- Banner -->
+    <div class="indexBanner">
+        <!-- CSS for background image -->
+        <div class="container-fluid">
+            <div class="logo"></div>
+            <div class="text-center">
+                <a href="#scroll-to-search" class="btn btn-block">
+                <svg width="1.5rem" height="1.5rem" viewBox="0 0 16 16" class="bi bi-arrow-bar-down" fill="white" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" d="M1 3.5a.5.5 0 0 1 .5-.5h13a.5.5 0 0 1 0 1h-13a.5.5 0 0 1-.5-.5zM8 6a.5.5 0 0 1 .5.5v5.793l2.146-2.147a.5.5 0 0 1 .708.708l-3 3a.5.5 0 0 1-.708 0l-3-3a.5.5 0 0 1 .708-.708L7.5 12.293V6.5A.5.5 0 0 1 8 6z"/>
+                </svg>
+            </a>
+            </div>
+            
+        </div>
+    </div>
+    
+
+    <!-- Search -->
+    <div class="searchbar mb-5" id="scroll-to-search">
+        <div class="container">
+            <form class="form-group">
+                <label class="display-4" for="search-bar" id="search-title">Search the auction</label>
+                <input class="form-control form-control-lg" id="search-bar" type="search" placeholder="Search" aria-label="Search">
+            </form>
+            <form class="form-row">
+                <div class="form-group col-md-4">
+                    <label for="searchbranding">Brand</label>
+                    <select class="form-control" id="searchbranding">
+                        <option selected>Any Brand</option>
+                        <option>...</option>
+                        <option>...</option>
+                    </select>
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="searchlocation">Location</label>
+                    <select class="form-control" id="searchlocation">
+                        <option selected>Any Location</option>
+                        <option>...</option>
+                        <option>...</option>
+                    </select>
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="searchtransmission">Transmission</label>
+                    <select class="form-control" id="searchlocation">
+                        <option selected>Any Transmission</option>
+                        <option>...</option>
+                        <option>...</option>
+                    </select>
+                </div>
+            </form>
+            <form class="form-row">
+                <div class="form-group col-md-4">
+                    <label for="searchmodel">Model</label>
+                    <select class="form-control" id="searchmodel">
+                        <option selected>Any Model</option>
+                        <option>...</option>
+                        <option>...</option>
+                    </select>
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="searchbody">Body Type</label>
+                    <select class="form-control" id="searchbody">
+                        <option selected>Any Type</option>
+                        <option>...</option>
+                        <option>...</option>
+                    </select>
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="searchcolour">Colour</label>
+                    <select class="form-control" id="searchcolour">
+                        <option selected>Any Colour</option>
+                        <option>...</option>
+                        <option>...</option>
+                    </select>
+                </div>
+                <p class="mx-auto"><a href="listings.html">More Search Options</a></p>
+                <button class="btn btn-primary btn-lg btn-block" type="submit">Search</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Featured -->
+    <div class="indexListings mt-5">
+        <div class="container">
+            <h4>Featured</h4>
+            <div class="card-deck">
+                <div class="card" id="indexCard">
+                    <img src="images/auction.jpg" class="card-img-top">
+                    <div class="card-body">
+                        <h5 class="card-title">2015 Mercedes A180</h5>
+                        <p class="card-text text-right">$35,000</p>
+                        <a href="vehicle.html" class="stretched-link"></a>
+                    </div>
+                </div>
+                <div class="card" id="indexCard">
+                    <img src="images/auction.jpg" class="card-img-top">
+                    <div class="card-body">
+                        <h5 class="card-title">2015 Mercedes A180</h5>
+                        <p class="card-text text-right">$35,000</p>
+                        <a href="vehicle.html" class="stretched-link"></a>
+                    </div>
+                </div>
+                <div class="card" id="indexCard">
+                    <img src="images/auction.jpg" class="card-img-top">
+                    <div class="card-body">
+                        <h5 class="card-title">2015 Mercedes A180</h5>
+                        <p class="card-text text-right">$35,000</p>
+                        <a href="vehicle.html" class="stretched-link"></a>
+                    </div>
+                </div>
+                <div class="card" id="indexCard">
+                    <img src="images/auction.jpg" class="card-img-top">
+                    <div class="card-body">
+                        <h5 class="card-title">2015 Mercedes A180</h5>
+                        <p class="card-text text-right">$35,000</p>
+                        <a href="vehicle.html" class="stretched-link"></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- New -->
+    <div class="indexListings mt-5">
+        <div class="container">
+            <h4>Recent Listings</h4>
+            <div class="card-deck">
+                <div class="card" id="indexCard">
+                    <img src="images/auction.jpg" class="card-img-top">
+                    <div class="card-body">
+                        <h5 class="card-title">2015 Mercedes A180</h5>
+                        <p class="card-text text-right">$35,000</p>
+                        <a href="vehicle.html" class="stretched-link"></a>
+                    </div>
+                </div>
+                <div class="card" id="indexCard">
+                    <img src="images/auction.jpg" class="card-img-top">
+                    <div class="card-body">
+                        <h5 class="card-title">2015 Mercedes A180</h5>
+                        <p class="card-text text-right">$35,000</p>
+                        <a href="vehicle.html" class="stretched-link"></a>
+                    </div>
+                </div>
+                <div class="card" id="indexCard">
+                    <img src="images/auction.jpg" class="card-img-top">
+                    <div class="card-body">
+                        <h5 class="card-title">2015 Mercedes A180</h5>
+                        <p class="card-text text-right">$35,000</p>
+                        <a href="vehicle.html" class="stretched-link"></a>
+                    </div>
+                </div>
+                <div class="card" id="indexCard">
+                    <img src="images/auction.jpg" class="card-img-top">
+                    <div class="card-body">
+                        <h5 class="card-title">2015 Mercedes A180</h5>
+                        <p class="card-text text-right">$35,000</p>
+                        <a href="vehicle.html" class="stretched-link"></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Top 5 Bids -->
+    <div class="indexListings mt-5">
+        <div class="container">
+            <h4>Popular</h4>
+            <div class="card-deck">
+                <div class="card" id="indexCard">
+                    <img src="images/auction.jpg" class="card-img-top">
+                    <div class="card-body">
+                        <h5 class="card-title">Car 1</h5>
+                        <p class="card-text float-right"><small class="text-muted">$689,419</small></p>
+                        <p class="card-text"><small class="text-muted">60 Bids</small></p>
+                        <a href="vehicle.html" class="stretched-link"></a>
+                    </div>
+                </div>
+                <div class="card" id="indexCard">
+                    <img src="images/auction.jpg" class="card-img-top">
+                    <div class="card-body">
+                        <h5 class="card-title">Car 2</h5>
+                        <p class="card-text float-right"><small class="text-muted">$609,220</small></p>
+                        <p class="card-text"><small class="text-muted">54 Bids</small></p>
+                        <a href="vehicle.html" class="stretched-link"></a>
+                    </div>
+                </div>
+                <div class="card" id="indexCard">
+                    <img src="images/auction.jpg" class="card-img-top">
+                    <div class="card-body">
+                        <h5 class="card-title">Car 3</h5>
+                        <p class="card-text float-right"><small class="text-muted">$594,125</small></p>
+                        <p class="card-text"><small class="text-muted">47 Bids</small></p>
+                        <a href="vehicle.html" class="stretched-link"></a>
+                    </div>
+                </div>
+                <div class="card" id="indexCard">
+                    <img src="images/auction.jpg" class="card-img-top">
+                    <div class="card-body">
+                        <h5 class="card-title">Car 4</h5>
+                        <p class="card-text float-right"><small class="text-muted">$575,620</small></p>
+                        <p class="card-text"><small class="text-muted">43 Bids</small></p>
+                        <a href="vehicle.html" class="stretched-link"></a>
+                    </div>
+                </div>
+                <div class="card" id="indexCard">
+                    <img src="images/auction.jpg" class="card-img-top">
+                    <div class="card-body">
+                        <h5 class="card-title">Car 5</h5>
+                        <p class="card-text float-right"><small class="text-muted">Bid: $560,320</small></p>
+                        <p class="card-text"><small class="text-muted">39 Bids</small></p>
+                        <a href="vehicle.html" class="stretched-link"></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="navbar navbar-dark navbar-static-bottom">
+        <div class="container-fluid">
+            <div class="container">
+                <p>&copy; Junhao Li n10235035</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+  </body>
+</html>
