@@ -1,0 +1,150 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+
+html, body {
+    background-color: whitesmoke;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.navbar {
+    padding: .5rem;
+    box-shadow: 0rem .05rem 1rem;
+}
+
+.navbar-nav li {
+    margin-right: .9rem;
+    display: inline-block;
+}
+
+.navbar-nav li::after {
+    content: '';
+    width: 0rem;
+    height: 0.05rem;
+    display: block;
+    background: rgba(0, 0, 0, .5);
+    transition: 200ms;
+}
+
+.navbar-nav li:hover::after {
+    width: 100%;
+}
+
+
+.indexBanner {
+    height: 30rem;
+    background: url(../images/banner3.jpg) no-repeat center;
+    background-size: cover;
+    background-attachment: fixed;
+    position: relative;
+}
+
+.indexBanner .btn {
+    position: absolute;
+    box-shadow: none;
+    bottom: 0rem;
+    right: .15rem;
+}
+
+.logo {
+    background: url(../images/logo.png) no-repeat center;
+    height: 5rem;
+    background-size: contain;
+}
+
+.searchbar .container {
+    padding-top: 1%;
+    padding-left: 10%;
+    padding-right: 10%;
+}
+
+.searchbar #search-title {
+    font-size: 2rem;
+    padding-bottom: .5rem;
+}
+
+.indexListing .card {
+    max-height: 30rem;
+    max-width: 20rem;
+}
+
+.pageTitle {
+    padding-top: 5rem;
+}
+
+.carThumbnail {
+    position: relative;
+    width: 50%;
+}
+
+.carThumbnail img {
+    width: 100%;
+    height: auto;
+}
+
+
+#uploadFile {
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 5rem;
+    margin-top: 1rem;
+}
+
+.biddingCard h1, .biddingCard h2 {
+    text-align: center;
+}
+
+.biddingCard .form-inline {
+    margin: auto;
+    margin-bottom: 1rem;
+}
+
+.addWatch {
+    position: absolute;
+    top: 1rem;
+    right: 2rem;
+}
+
+.tabGallery {
+    margin-top: 1rem;
+    width: 8rem;
+    box-shadow: .1rem .1rem .5rem grey;
+}
+
+#writeReview {
+    vertical-align: middle;
+    margin-right: .25rem;
+    margin-top: 10%;
+}
+
+.media img {
+    height: 6.5rem;
+    border-radius: .5rem;
+    padding: .4rem;
+}
+
+.listing-results .media img {
+    height: 13rem;
+    border-radius: .5rem;
+    padding: .4rem;
+    background-size: 100% 100%;
+}
+
+.car-results .media-body {
+    min-width: 10rem;
+}
+
+.car-results .btn {
+    min-width: 5rem;
+}
+
+.btn, .close {
+    box-shadow: none !important;
+}
+
+
+footer {
+    background-color: #212529;
+    color: white;
+    padding-top: .5rem;
+    padding-bottom: .5rem;
+    margin-top: 5rem;
+}
