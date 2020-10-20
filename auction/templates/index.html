@@ -85,38 +85,16 @@
     <div class="container">
         <h4>Featured</h4>
         <div class="card-deck">
+            {% for car in featuredList %}
             <div class="card" id="indexCard">
                 <img src="../static/images/auction.jpg" class="card-img-top">
                 <div class="card-body">
-                    <h5 class="card-title">2015 Mercedes A180</h5>
-                    <p class="card-text text-right">$35,000</p>
-                    <a href="vehicle.html" class="stretched-link"></a>
+                    <h5 class="card-title">{{ car.title }}</h5>
+                    <p class="card-text text-right">{{ car.bid }}</p>
+                    <a href="/vehicle" class="stretched-link"></a>
                 </div>
             </div>
-            <div class="card" id="indexCard">
-                <img src="../static/images/auction.jpg" class="card-img-top">
-                <div class="card-body">
-                    <h5 class="card-title">2015 Mercedes A180</h5>
-                    <p class="card-text text-right">$35,000</p>
-                    <a href="vehicle.html" class="stretched-link"></a>
-                </div>
-            </div>
-            <div class="card" id="indexCard">
-                <img src="../static/images/auction.jpg" class="card-img-top">
-                <div class="card-body">
-                    <h5 class="card-title">2015 Mercedes A180</h5>
-                    <p class="card-text text-right">$35,000</p>
-                    <a href="vehicle.html" class="stretched-link"></a>
-                </div>
-            </div>
-            <div class="card" id="indexCard">
-                <img src="../static/images/auction.jpg" class="card-img-top">
-                <div class="card-body">
-                    <h5 class="card-title">2015 Mercedes A180</h5>
-                    <p class="card-text text-right">$35,000</p>
-                    <a href="vehicle.html" class="stretched-link"></a>
-                </div>
-            </div>
+            {% endfor %}
         </div>
     </div>
 </div>
@@ -126,38 +104,16 @@
     <div class="container">
         <h4>Recent Listings</h4>
         <div class="card-deck">
+            {% for car in recentList %}
             <div class="card" id="indexCard">
                 <img src="../static/images/auction.jpg" class="card-img-top">
                 <div class="card-body">
-                    <h5 class="card-title">2015 Mercedes A180</h5>
-                    <p class="card-text text-right">$35,000</p>
-                    <a href="vehicle.html" class="stretched-link"></a>
+                    <h5 class="card-title">{{ car.title }}</h5>
+                    <p class="card-text text-right">{{ car.bid }}</p>
+                    <a href="/vehicle" class="stretched-link"></a>
                 </div>
             </div>
-            <div class="card" id="indexCard">
-                <img src="../static/images/auction.jpg" class="card-img-top">
-                <div class="card-body">
-                    <h5 class="card-title">2015 Mercedes A180</h5>
-                    <p class="card-text text-right">$35,000</p>
-                    <a href="vehicle.html" class="stretched-link"></a>
-                </div>
-            </div>
-            <div class="card" id="indexCard">
-                <img src="../static/images/auction.jpg" class="card-img-top">
-                <div class="card-body">
-                    <h5 class="card-title">2015 Mercedes A180</h5>
-                    <p class="card-text text-right">$35,000</p>
-                    <a href="vehicle.html" class="stretched-link"></a>
-                </div>
-            </div>
-            <div class="card" id="indexCard">
-                <img src="../static/images/auction.jpg" class="card-img-top">
-                <div class="card-body">
-                    <h5 class="card-title">2015 Mercedes A180</h5>
-                    <p class="card-text text-right">$35,000</p>
-                    <a href="vehicle.html" class="stretched-link"></a>
-                </div>
-            </div>
+            {% endfor %}
         </div>
     </div>
 </div>
@@ -167,51 +123,17 @@
     <div class="container">
         <h4>Popular</h4>
         <div class="card-deck">
+            {% for car in popularList %}
             <div class="card" id="indexCard">
                 <img src="../static/images/auction.jpg" class="card-img-top">
                 <div class="card-body">
-                    <h5 class="card-title">Car 1</h5>
-                    <p class="card-text float-right"><small class="text-muted">$689,419</small></p>
-                    <p class="card-text"><small class="text-muted">60 Bids</small></p>
-                    <a href="vehicle.html" class="stretched-link"></a>
+                    <h5 class="card-title">{{ car.title }}</h5>
+                    <p class="card-text float-right"><small class="text-muted">{{ car.bid }}</small></p>
+                    <p class="card-text"><small class="text-muted">{{ car.bidders }}</small></p>
+                    <a href="/vehicle" class="stretched-link"></a>
                 </div>
             </div>
-            <div class="card" id="indexCard">
-                <img src="../static/images/auction.jpg" class="card-img-top">
-                <div class="card-body">
-                    <h5 class="card-title">Car 2</h5>
-                    <p class="card-text float-right"><small class="text-muted">$609,220</small></p>
-                    <p class="card-text"><small class="text-muted">54 Bids</small></p>
-                    <a href="vehicle.html" class="stretched-link"></a>
-                </div>
-            </div>
-            <div class="card" id="indexCard">
-                <img src="../static/images/auction.jpg" class="card-img-top">
-                <div class="card-body">
-                    <h5 class="card-title">Car 3</h5>
-                    <p class="card-text float-right"><small class="text-muted">$594,125</small></p>
-                    <p class="card-text"><small class="text-muted">47 Bids</small></p>
-                    <a href="vehicle.html" class="stretched-link"></a>
-                </div>
-            </div>
-            <div class="card" id="indexCard">
-                <img src="../static/images/auction.jpg" class="card-img-top">
-                <div class="card-body">
-                    <h5 class="card-title">Car 4</h5>
-                    <p class="card-text float-right"><small class="text-muted">$575,620</small></p>
-                    <p class="card-text"><small class="text-muted">43 Bids</small></p>
-                    <a href="vehicle.html" class="stretched-link"></a>
-                </div>
-            </div>
-            <div class="card" id="indexCard">
-                <img src="../static/images/auction.jpg" class="card-img-top">
-                <div class="card-body">
-                    <h5 class="card-title">Car 5</h5>
-                    <p class="card-text float-right"><small class="text-muted">Bid: $560,320</small></p>
-                    <p class="card-text"><small class="text-muted">39 Bids</small></p>
-                    <a href="vehicle.html" class="stretched-link"></a>
-                </div>
-            </div>
+            {% endfor %}
         </div>
     </div>
 </div>

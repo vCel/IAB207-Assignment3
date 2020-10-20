@@ -6,7 +6,13 @@ bp = Blueprint('main', __name__)
 
 @bp.route('/')
 def index():
-    return render_template('index.html')
+    get_featured = featured()
+    get_recent = recent()
+    get_popular = popular()
+    return render_template('index.html',
+                           featuredList=get_featured,
+                           recentList=get_recent,
+                           popularList=get_popular)
 
 
 @bp.route('/login')
@@ -37,3 +43,28 @@ def new_auction():
     newAuction.add_detail("rego", "000XYZ")
 
     return newAuction
+
+
+def featured():
+    newList = list()
+    for i in range(4):
+        newAuction = Auction("2015 Mercedes A180", "description", "$25,000", "$35,000", 60)
+        newList.append(newAuction)
+
+    return newList
+
+def recent():
+    newList = list()
+    for i in range(4):
+        newAuction = Auction("2015 Mercedes A180", "description", "$25,000", "$35,000", 60)
+        newList.append(newAuction)
+
+    return newList
+
+def popular():
+    newList = list()
+    for i in range(5):
+        newAuction = Auction("2015 Mercedes A180", "description", "$25,000", "$35,000", 60)
+        newList.append(newAuction)
+
+    return newList
