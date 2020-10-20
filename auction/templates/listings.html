@@ -1,379 +1,341 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+{% include "base.html" %}
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-    <link rel="stylesheet" href="styling/styles.css">
-    <title>Car Auction</title>
-  </head>
-  <body>
-
-    <!-- Navbar -->
-    <nav class="navbar sticky-top navbar-expand-md navbar-light bg-light">
-        <div class="container-fluid py-1">
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <!-- Navbar items -->
-            <div class="collapse navbar-collapse justify-content-center" id="navbarResponsive">
-                <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a href="index.html" class="nav-link">Home</a>
-                    </li>
-                    <li class="nav-item active">
-                        <a href="listings.html" class="nav-link">Listings</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="sell.html" class="nav-link">Sell My Car</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="account.html" class="nav-link">My Account</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-
-    <!-- Title -->
-    <div class="pageTitle">
-        <div class="container">
-            <h2>Listings</h2>
-        </div>
+<!-- Title -->
+<div class="pageTitle">
+    <div class="container">
+        <h2>Listings</h2>
     </div>
+</div>
 
-    <div class="listing-results">
-        <div class="container">
-            <div class="row">
-                <!-- Left side Sidebar -->
-                <div class="col-lg-3">
-                    <div class="nav-sidebar mb-5">
-                        <h5 class="card-header">Search</h5>
-                        <div id="accordion">
-                            <ul class="list-group">
-                                <!-- Search bar -->
-                                <li class="list-group-item">
-                                    <div class="input-group">
-                                        <input type="text" class="form-control" placeholder="Search" aria-label="Search" aria-describedby="button-search">
-                                        <div class="input-group-append">
-                                            <button class="btn btn-outline-secondary" type="button" id="button-search">
-                                                <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-search" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                                                    <path fill-rule="evenodd" d="M10.442 10.442a1 1 0 0 1 1.415 0l3.85 3.85a1 1 0 0 1-1.414 1.415l-3.85-3.85a1 1 0 0 1 0-1.415z"/>
-                                                    <path fill-rule="evenodd" d="M6.5 12a5.5 5.5 0 1 0 0-11 5.5 5.5 0 0 0 0 11zM13 6.5a6.5 6.5 0 1 1-13 0 6.5 6.5 0 0 1 13 0z"/>
-                                                  </svg>
-                                            </button>
-                                        </div>
-                                    </div>
-                                </li>
-                                <!-- Brand -->
-                                <li class="list-group-item">
-                                    <div class="card-title" id="headingOne">
-                                        <h5 class="mb-0">
-                                            <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                            Brand
-                                            </button>
-                                        </h5>
-                                    </div>
-                                    <!-- Collapse -->
-                                    <div id="collapseOne" class="collapse show" aria-labelledby="headingOne">
-                                        <div class="card-body">
-                                            <div class="form-check">                       
-                                                <input class="form-check-input" type="checkbox" value="" id="1Check">
-                                                <label class="form-check-label" for="1Check">BMW</label>
-                                            </div>
-                                            <div class="form-check">                       
-                                                <input class="form-check-input" type="checkbox" value="" id="2Check">
-                                                <label class="form-check-label" for="2Check">Ford</label>
-                                            </div>
-                                            <div class="form-check">                       
-                                                <input class="form-check-input" type="checkbox" value="" id="3Check">
-                                                <label class="form-check-label" for="3Check">Holden</label>
-                                            </div>
-                                            <div class="form-check">                       
-                                                <input class="form-check-input" type="checkbox" value="" id="4Check">
-                                                <label class="form-check-label" for="4Check">...</label>
-                                            </div>
-                                        </div> 
-                                    </div>
-                                </li>
-                                <!-- Model -->
-                                <li class="list-group-item">
-                                    <div class="card-title" id="headingTwo">
-                                        <h5 class="mb-0">
-                                            <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
-                                            Model
-                                            </button>
-                                        </h5>
-                                    </div>
-                                    <!-- Collapse -->
-                                    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo">
-                                        <div class="card-body">
-                                            <div class="form-check">                       
-                                                <input class="form-check-input" type="checkbox" value="" id="1Check">
-                                                <label class="form-check-label" for="1Check">...</label>
-                                            </div>
-                                        </div> 
-                                    </div>
-                                </li>
-                                <!-- Transmission -->
-                                <li class="list-group-item">
-                                    <div class="card-title" id="headingThree">
-                                        <h5 class="mb-0">
-                                            <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="true" aria-controls="collapseThree">
-                                            Transmission
-                                            </button>
-                                        </h5>
-                                    </div>
-                                    <!-- Collapse -->
-                                    <div id="collapseThree" class="collapse" aria-labelledby="headingThree">
-                                        <div class="card-body">
-                                            <div class="form-check">                       
-                                                <input class="form-check-input" type="checkbox" value="" id="1Check">
-                                                <label class="form-check-label" for="1Check">Automatic</label>
-                                            </div>
-                                            <div class="form-check">                       
-                                                <input class="form-check-input" type="checkbox" value="" id="2Check">
-                                                <label class="form-check-label" for="2Check">Manual</label>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
-                                <!-- Body Type -->
-                                <li class="list-group-item">
-                                    <div class="card-title" id="headingFour">
-                                        <h5 class="mb-0">
-                                            <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseFour" aria-expanded="true" aria-controls="collapseFour">
-                                            Body Type
-                                            </button>
-                                        </h5>
-                                    </div>
-                                    <!-- Collapse -->
-                                    <div id="collapseFour" class="collapse" aria-labelledby="headingFour">
-                                        <div class="card-body">
-                                            <div class="form-check">                       
-                                                <input class="form-check-input" type="checkbox" value="" id="1Check">
-                                                <label class="form-check-label" for="1Check">...</label>
-                                            </div>
-                                        </div> 
-                                    </div>
-                                </li>
-                                <!-- Colour -->
-                                <li class="list-group-item">
-                                    <div class="card-title" id="headingFive">
-                                        <h5 class="mb-0">
-                                            <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseFive" aria-expanded="true" aria-controls="collapseFive">
-                                            Colour
-                                            </button>
-                                        </h5>
-                                    </div>
-                                    <!-- Collapse -->
-                                    <div id="collapseFive" class="collapse" aria-labelledby="headingFive">
-                                        <div class="card-body">
-                                            <div class="form-check">                       
-                                                <input class="form-check-input" type="checkbox" value="" id="1Check">
-                                                <label class="form-check-label" for="1Check">...</label>
-                                            </div>
-                                        </div> 
-                                    </div>
-                                </li>
-                                <!-- Year -->
-                                <li class="list-group-item">
-                                    <div class="card-title" id="headingSix">
-                                        <h5 class="mb-0">
-                                            <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseSix" aria-expanded="true" aria-controls="collapseSix">
-                                            Year
-                                            </button>
-                                        </h5>
-                                    </div>
-                                    <!-- Collapse -->
-                                    <div id="collapseSix" class="collapse" aria-labelledby="headingSix">
-                                        <div class="card-body">
-                                            <label for="From">From</label>
-                                            <div class="input-group">                       
-                                                <input class="form-control" type="text" id="From" placeholder="From">
-                                            </div>
-                                            <label for="To">To</label>
-                                            <div class="input-group">                       
-                                                <input class="form-control" type="text" id="To" placeholder="To">
-                                            </div>
-                                        </div> 
-                                    </div>
-                                </li>
-                                <!-- Price -->
-                                <li class="list-group-item">
-                                    <div class="card-title" id="headingSeven">
-                                        <h5 class="mb-0">
-                                            <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseSeven" aria-expanded="true" aria-controls="collapseSeven">
-                                            Price
-                                            </button>
-                                        </h5>
-                                    </div>
-                                    <!-- Collapse -->
-                                    <div id="collapseSeven" class="collapse" aria-labelledby="headingSeven">
-                                        <div class="card-body">
-                                            <label for="priceMin">Min</label>
-                                            <div class="input-group">                       
-                                                <input class="form-control" type="text" id="priceMin" placeholder="Min">
-                                            </div>
-                                            <label for="priceMax">Max</label>
-                                            <div class="input-group">                       
-                                                <input class="form-control" type="text" id="priceMax" placeholder="Max">
-                                            </div>
-                                        </div> 
-                                    </div>
-                                </li>
-                                <!-- Mileage -->
-                                <li class="list-group-item">
-                                    <div class="card-title" id="headingEight">
-                                        <h5 class="mb-0">
-                                            <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseEight" aria-expanded="true" aria-controls="collapseEight">
-                                            Mileage
-                                            </button>
-                                        </h5>
-                                    </div>
-                                    <!-- Collapse -->
-                                    <div id="collapseEight" class="collapse" aria-labelledby="headingEight">
-                                        <div class="card-body">
-                                            <label for="mileMin">Min</label>
-                                            <div class="input-group">                       
-                                                <input class="form-control" type="text" id="mileMin" placeholder="Min">
-                                            </div>
-                                            <label for="mileMax">Max</label>
-                                            <div class="input-group">                       
-                                                <input class="form-control" type="text" id="mileMax" placeholder="Max">
-                                            </div>
-                                        </div> 
-                                    </div>
-                                </li>
-                                <!-- Mileage -->
-                                <li class="list-group-item">
-                                    <div class="card-title" id="headingNine">
-                                        <h5 class="mb-0">
-                                            <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseNine" aria-expanded="true" aria-controls="collapseNine">
-                                            Location
-                                            </button>
-                                        </h5>
-                                    </div>
-                                    <!-- Collapse -->
-                                    <div id="collapseNine" class="collapse" aria-labelledby="headingNine">
-                                        <div class="card-body">
-                                            <label for="state">State</label>
-                                            <div class="input-group">                       
-                                                <input class="form-control" type="text" id="state" placeholder="State">
-                                            </div>
-                                            <label for="city">City</label>
-                                            <div class="input-group">                       
-                                                <input class="form-control" type="text" id="city" placeholder="City">
-                                            </div>
-                                            <label for="suburb">Suburb</label>
-                                            <div class="input-group">                       
-                                                <input class="form-control" type="text" id="suburb" placeholder="Suburb">
-                                            </div>
-                                        </div> 
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <!-- Right side results -->
-                <div class="col-lg-9">
-                    <div class="sort-by">
-                        <div class="row mb-4">
-                            <div class="col-md-9"><h4>1 Result Found</h4></div>
-                            <div class="input-group col-md-3">
-                                <select class="form-control float-right">
-                                    <option>Sort by: Featured</option>
-                                    <option>Sort by: Recent</option>
-                                    <option>Sort by: Oldest</option>
-                                    <option>Sort by: Price - Lowest</option>
-                                    <option>Sort by: Price - Highest</option>
-                                </select>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Car -->
-                    <div class="car-results">
+<div class="listing-results">
+    <div class="container">
+        <div class="row">
+            <!-- Left side Sidebar -->
+            <div class="col-lg-3">
+                <div class="nav-sidebar mb-5">
+                    <h5 class="card-header">Search</h5>
+                    <div id="accordion">
                         <ul class="list-group">
+                            <!-- Search bar -->
                             <li class="list-group-item">
-                                <div class="media">
-                                    <figure class="figure">
-                                        <img class="img-fluid" src="images/outback.jpeg">
-                                    </figure>
-
-                                    <div class="media-body">
-                                        <h5 class="my-2">2019 Subaru Outback White AWD</h5>
-                                        <h6 class="card-text float-right mr-3">$30,000</h6>
-                                        <p class="card-text">Transmission: Automatic</p>
-                                        <p class="card-text">Body Type: SUV</p>
-                                        <p class="card-text">Colour: White</p>
-                                        <div class="row">
-                                            <div class="col-md-6"></div>
-                                            <div class="col-md-3">
-                                                <a href="vehicle.html" class="btn btn-block btn-primary">Details</a>
-                                            </div>
-                                            <div class="col-md-3">
-                                                <a href="#" class="btn btn-block btn-warning" data-toggle="modal" data-target="#bidPopUp">Bid</a>
-                                            </div>
+                                <div class="input-group">
+                                    <input type="text" class="form-control" placeholder="Search" aria-label="Search" aria-describedby="button-search">
+                                    <div class="input-group-append">
+                                        <button class="btn btn-outline-secondary" type="button" id="button-search">
+                                            <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-search" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                                <path fill-rule="evenodd" d="M10.442 10.442a1 1 0 0 1 1.415 0l3.85 3.85a1 1 0 0 1-1.414 1.415l-3.85-3.85a1 1 0 0 1 0-1.415z"/>
+                                                <path fill-rule="evenodd" d="M6.5 12a5.5 5.5 0 1 0 0-11 5.5 5.5 0 0 0 0 11zM13 6.5a6.5 6.5 0 1 1-13 0 6.5 6.5 0 0 1 13 0z"/>
+                                                </svg>
+                                        </button>
+                                    </div>
+                                </div>
+                            </li>
+                            <!-- Brand -->
+                            <li class="list-group-item">
+                                <div class="card-title" id="headingOne">
+                                    <h5 class="mb-0">
+                                        <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                        Brand
+                                        </button>
+                                    </h5>
+                                </div>
+                                <!-- Collapse -->
+                                <div id="collapseOne" class="collapse show" aria-labelledby="headingOne">
+                                    <div class="card-body">
+                                        <div class="form-check">                       
+                                            <input class="form-check-input" type="checkbox" value="" id="1Check">
+                                            <label class="form-check-label" for="1Check">BMW</label>
+                                        </div>
+                                        <div class="form-check">                       
+                                            <input class="form-check-input" type="checkbox" value="" id="2Check">
+                                            <label class="form-check-label" for="2Check">Ford</label>
+                                        </div>
+                                        <div class="form-check">                       
+                                            <input class="form-check-input" type="checkbox" value="" id="3Check">
+                                            <label class="form-check-label" for="3Check">Holden</label>
+                                        </div>
+                                        <div class="form-check">                       
+                                            <input class="form-check-input" type="checkbox" value="" id="4Check">
+                                            <label class="form-check-label" for="4Check">...</label>
+                                        </div>
+                                    </div> 
+                                </div>
+                            </li>
+                            <!-- Model -->
+                            <li class="list-group-item">
+                                <div class="card-title" id="headingTwo">
+                                    <h5 class="mb-0">
+                                        <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+                                        Model
+                                        </button>
+                                    </h5>
+                                </div>
+                                <!-- Collapse -->
+                                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo">
+                                    <div class="card-body">
+                                        <div class="form-check">                       
+                                            <input class="form-check-input" type="checkbox" value="" id="1Check">
+                                            <label class="form-check-label" for="1Check">...</label>
+                                        </div>
+                                    </div> 
+                                </div>
+                            </li>
+                            <!-- Transmission -->
+                            <li class="list-group-item">
+                                <div class="card-title" id="headingThree">
+                                    <h5 class="mb-0">
+                                        <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="true" aria-controls="collapseThree">
+                                        Transmission
+                                        </button>
+                                    </h5>
+                                </div>
+                                <!-- Collapse -->
+                                <div id="collapseThree" class="collapse" aria-labelledby="headingThree">
+                                    <div class="card-body">
+                                        <div class="form-check">                       
+                                            <input class="form-check-input" type="checkbox" value="" id="1Check">
+                                            <label class="form-check-label" for="1Check">Automatic</label>
+                                        </div>
+                                        <div class="form-check">                       
+                                            <input class="form-check-input" type="checkbox" value="" id="2Check">
+                                            <label class="form-check-label" for="2Check">Manual</label>
                                         </div>
                                     </div>
+                                </div>
+                            </li>
+                            <!-- Body Type -->
+                            <li class="list-group-item">
+                                <div class="card-title" id="headingFour">
+                                    <h5 class="mb-0">
+                                        <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseFour" aria-expanded="true" aria-controls="collapseFour">
+                                        Body Type
+                                        </button>
+                                    </h5>
+                                </div>
+                                <!-- Collapse -->
+                                <div id="collapseFour" class="collapse" aria-labelledby="headingFour">
+                                    <div class="card-body">
+                                        <div class="form-check">                       
+                                            <input class="form-check-input" type="checkbox" value="" id="1Check">
+                                            <label class="form-check-label" for="1Check">...</label>
+                                        </div>
+                                    </div> 
+                                </div>
+                            </li>
+                            <!-- Colour -->
+                            <li class="list-group-item">
+                                <div class="card-title" id="headingFive">
+                                    <h5 class="mb-0">
+                                        <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseFive" aria-expanded="true" aria-controls="collapseFive">
+                                        Colour
+                                        </button>
+                                    </h5>
+                                </div>
+                                <!-- Collapse -->
+                                <div id="collapseFive" class="collapse" aria-labelledby="headingFive">
+                                    <div class="card-body">
+                                        <div class="form-check">                       
+                                            <input class="form-check-input" type="checkbox" value="" id="1Check">
+                                            <label class="form-check-label" for="1Check">...</label>
+                                        </div>
+                                    </div> 
+                                </div>
+                            </li>
+                            <!-- Year -->
+                            <li class="list-group-item">
+                                <div class="card-title" id="headingSix">
+                                    <h5 class="mb-0">
+                                        <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseSix" aria-expanded="true" aria-controls="collapseSix">
+                                        Year
+                                        </button>
+                                    </h5>
+                                </div>
+                                <!-- Collapse -->
+                                <div id="collapseSix" class="collapse" aria-labelledby="headingSix">
+                                    <div class="card-body">
+                                        <label for="From">From</label>
+                                        <div class="input-group">                       
+                                            <input class="form-control" type="text" id="From" placeholder="From">
+                                        </div>
+                                        <label for="To">To</label>
+                                        <div class="input-group">                       
+                                            <input class="form-control" type="text" id="To" placeholder="To">
+                                        </div>
+                                    </div> 
+                                </div>
+                            </li>
+                            <!-- Price -->
+                            <li class="list-group-item">
+                                <div class="card-title" id="headingSeven">
+                                    <h5 class="mb-0">
+                                        <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseSeven" aria-expanded="true" aria-controls="collapseSeven">
+                                        Price
+                                        </button>
+                                    </h5>
+                                </div>
+                                <!-- Collapse -->
+                                <div id="collapseSeven" class="collapse" aria-labelledby="headingSeven">
+                                    <div class="card-body">
+                                        <label for="priceMin">Min</label>
+                                        <div class="input-group">                       
+                                            <input class="form-control" type="text" id="priceMin" placeholder="Min">
+                                        </div>
+                                        <label for="priceMax">Max</label>
+                                        <div class="input-group">                       
+                                            <input class="form-control" type="text" id="priceMax" placeholder="Max">
+                                        </div>
+                                    </div> 
+                                </div>
+                            </li>
+                            <!-- Mileage -->
+                            <li class="list-group-item">
+                                <div class="card-title" id="headingEight">
+                                    <h5 class="mb-0">
+                                        <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseEight" aria-expanded="true" aria-controls="collapseEight">
+                                        Mileage
+                                        </button>
+                                    </h5>
+                                </div>
+                                <!-- Collapse -->
+                                <div id="collapseEight" class="collapse" aria-labelledby="headingEight">
+                                    <div class="card-body">
+                                        <label for="mileMin">Min</label>
+                                        <div class="input-group">                       
+                                            <input class="form-control" type="text" id="mileMin" placeholder="Min">
+                                        </div>
+                                        <label for="mileMax">Max</label>
+                                        <div class="input-group">                       
+                                            <input class="form-control" type="text" id="mileMax" placeholder="Max">
+                                        </div>
+                                    </div> 
+                                </div>
+                            </li>
+                            <!-- Mileage -->
+                            <li class="list-group-item">
+                                <div class="card-title" id="headingNine">
+                                    <h5 class="mb-0">
+                                        <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseNine" aria-expanded="true" aria-controls="collapseNine">
+                                        Location
+                                        </button>
+                                    </h5>
+                                </div>
+                                <!-- Collapse -->
+                                <div id="collapseNine" class="collapse" aria-labelledby="headingNine">
+                                    <div class="card-body">
+                                        <label for="state">State</label>
+                                        <div class="input-group">                       
+                                            <input class="form-control" type="text" id="state" placeholder="State">
+                                        </div>
+                                        <label for="city">City</label>
+                                        <div class="input-group">                       
+                                            <input class="form-control" type="text" id="city" placeholder="City">
+                                        </div>
+                                        <label for="suburb">Suburb</label>
+                                        <div class="input-group">                       
+                                            <input class="form-control" type="text" id="suburb" placeholder="Suburb">
+                                        </div>
+                                    </div> 
                                 </div>
                             </li>
                         </ul>
                     </div>
                 </div>
-                </div>
             </div>
-        </div>                    
-    </div>
-
-    <!-- Modal for Bid -->
-    <div class="modal fade" id="bidPopUp" tabindex="-1" role="dialog" aria-labelledby="bidTitle" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="bidLongTitle">Bid</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                      </button>
+            <!-- Right side results -->
+            <div class="col-lg-9">
+                <div class="sort-by">
+                    <div class="row mb-4">
+                        <div class="col-md-9"><h4>1 Result Found</h4></div>
+                        <div class="input-group col-md-3">
+                            <select class="form-control float-right">
+                                <option>Sort by: Featured</option>
+                                <option>Sort by: Recent</option>
+                                <option>Sort by: Oldest</option>
+                                <option>Sort by: Price - Lowest</option>
+                                <option>Sort by: Price - Highest</option>
+                            </select>
+                        </div>
                     </div>
-                    <form>
-                        <div class="modal-body">
-                            <h4 class="text-center">Current Bid: $30,000.</h4>
-                            <div class="input-group">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text" id="bidArea">$</span>
-                                </div>
-                                <input type="text" class="form-control" placeholder="Bid Amount" aria-label="Bid" aria-describedby="bidArea" required>
-                            </div>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                            <button type="submit" class="btn btn-primary">Bid</button>
-                        </div>
-                    </form>
                 </div>
+                
+                <!-- Car -->
+                <div class="car-results">
+                    <ul class="list-group">
+                        <li class="list-group-item">
+                            <div class="media">
+                                <figure class="figure">
+                                    <img class="img-fluid" src="../static/images/outback.jpeg">
+                                </figure>
+
+                                <div class="media-body">
+                                    <h5 class="my-2">2019 Subaru Outback White AWD</h5>
+                                    <h6 class="card-text float-right mr-3">$30,000</h6>
+                                    <p class="card-text">Transmission: Automatic</p>
+                                    <p class="card-text">Body Type: SUV</p>
+                                    <p class="card-text">Colour: White</p>
+                                    <div class="row">
+                                        <div class="col-md-6"></div>
+                                        <div class="col-md-3">
+                                            <a href="vehicle.html" class="btn btn-block btn-primary">Details</a>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <a href="#" class="btn btn-block btn-warning" data-toggle="modal" data-target="#bidPopUp">Bid</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            </div>
+        </div>
+    </div>                    
+</div>
+
+<!-- Modal for Bid -->
+<div class="modal fade" id="bidPopUp" tabindex="-1" role="dialog" aria-labelledby="bidTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="bidLongTitle">Bid</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <form>
+                    <div class="modal-body">
+                        <h4 class="text-center">Current Bid: $30,000.</h4>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="bidArea">$</span>
+                            </div>
+                            <input type="text" class="form-control" placeholder="Bid Amount" aria-label="Bid" aria-describedby="bidArea" required>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary">Bid</button>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
+</div>
 
-    <!-- Footer -->
-    <footer class="navbar navbar-dark navbar-static-bottom">
-        <div class="container-fluid">
-            <div class="container">
-                <p>&copy; Junhao Li n10235035</p>
-            </div>
+<!-- Footer -->
+<footer class="navbar navbar-dark navbar-static-bottom">
+    <div class="container-fluid">
+        <div class="container">
+            <p>&copy; Junhao Li n10235035</p>
         </div>
-    </footer>
+    </div>
+</footer>
 
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
-  </body>
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+</body>
 </html>
