@@ -66,6 +66,12 @@ html, body {
     max-width: 20rem;
 }
 
+#status {
+    color: white;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, .5);
+}
+
 .pageTitle {
     padding-top: 5rem;
 }

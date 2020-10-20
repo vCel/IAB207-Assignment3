@@ -15,6 +15,21 @@ def index():
                            popularList=get_popular)
 
 
+@bp.route('/listings')
+def listings():
+    return render_template('listings.html')
+
+
+@bp.route('/sell')
+def sell():
+    return render_template('sell.html')
+
+
+@bp.route('/account')
+def account():
+    return render_template('account.html')
+
+
 @bp.route('/login')
 def login():
     return render_template('login.html')
@@ -53,6 +68,7 @@ def featured():
 
     return newList
 
+
 def recent():
     newList = list()
     for i in range(4):
@@ -60,6 +76,7 @@ def recent():
         newList.append(newAuction)
 
     return newList
+
 
 def popular():
     newList = list()

@@ -1,4 +1,7 @@
 {% include "base.html" %}
+<head>
+    <link rel="stylesheet" href="../static/styling/styles.css">
+</head>
 <!-- Banner -->
 <div class="indexBanner">
     <!-- CSS for background image -->
@@ -74,7 +77,7 @@
                     <option>...</option>
                 </select>
             </div>
-            <p class="mx-auto"><a href="listings.html">More Search Options</a></p>
+            <p class="mx-auto"><a href="/listings">More Search Options</a></p>
             <button class="btn btn-primary btn-lg btn-block" type="submit">Search</button>
         </form>
     </div>
@@ -88,9 +91,11 @@
             {% for car in featuredList %}
             <div class="card" id="indexCard">
                 <img src="../static/images/auction.jpg" class="card-img-top">
+                <small><p class="card-text text-center", id="status">{{ car.status }}</p></small>
                 <div class="card-body">
                     <h5 class="card-title">{{ car.title }}</h5>
-                    <p class="card-text text-right">{{ car.bid }}</p>
+                    <p class="card-text float-right">{{ car.bid }}</p>
+                    <p class="card-text"><small class="text-muted">Bids: {{ car.bidders }}</small></p>
                     <a href="/vehicle" class="stretched-link"></a>
                 </div>
             </div>
@@ -107,9 +112,11 @@
             {% for car in recentList %}
             <div class="card" id="indexCard">
                 <img src="../static/images/auction.jpg" class="card-img-top">
+                <small><p class="card-text text-center", id="status">{{ car.status }}</p></small>
                 <div class="card-body">
                     <h5 class="card-title">{{ car.title }}</h5>
-                    <p class="card-text text-right">{{ car.bid }}</p>
+                    <p class="card-text float-right">{{ car.bid }}</p>
+                    <p class="card-text"><small class="text-muted">Bids: {{ car.bidders }}</small></p>
                     <a href="/vehicle" class="stretched-link"></a>
                 </div>
             </div>
@@ -126,11 +133,13 @@
             {% for car in popularList %}
             <div class="card" id="indexCard">
                 <img src="../static/images/auction.jpg" class="card-img-top">
+                <small><p class="card-text text-center", id="status">{{ car.status }}</p></small>
                 <div class="card-body">
                     <h5 class="card-title">{{ car.title }}</h5>
                     <p class="card-text float-right"><small class="text-muted">{{ car.bid }}</small></p>
-                    <p class="card-text"><small class="text-muted">{{ car.bidders }}</small></p>
+                    <p class="card-text"><small class="text-muted">Bids: {{ car.bidders }}</small></p>
                     <a href="/vehicle" class="stretched-link"></a>
+                    
                 </div>
             </div>
             {% endfor %}
