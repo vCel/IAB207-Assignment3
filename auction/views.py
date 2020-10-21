@@ -1,4 +1,4 @@
-from flask import Blueprint, render_template
+from flask import Blueprint, render_template, request, session
 from .models import Auction
 
 bp = Blueprint('main', __name__)
@@ -27,11 +27,18 @@ def sell():
 
 @bp.route('/account')
 def account():
-    return render_template('account.html')
+    if "user" in session:
+        user = session["user"]
+        return render_template('account.html', user=user)
+    return render_template('login.html')
 
 
-@bp.route('/login')
+@bp.route('/login', methods=["POST", "GET"])
 def login():
+    if request.method == "POST":
+        user = request.form["email"] #change to name later
+        session["user"] = user
+        return redirect(url_for("user"))
     return render_template('login.html')
 
 

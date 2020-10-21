@@ -28,6 +28,25 @@ html, body {
     width: 100%;
 }
 
+.login-background {
+    height: 100%;
+    width: 100%;
+    background: url(../images/login-wallpaper-audi.jpg) no-repeat center;
+    background-size: cover;
+    position: fixed;
+}
+
+.login-menu {
+    height: 100vh;
+    background-color: whitesmoke;
+    padding-left: 2rem;
+    padding-right: 2rem;
+}
+
+.login-input {
+    padding-top: 55%;
+}
+
 
 .indexBanner {
     height: 30rem;
