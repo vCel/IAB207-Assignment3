@@ -42,6 +42,11 @@ def login():
     return render_template('login.html')
 
 
+@bp.route('/register')
+def register():
+    return render_template('register.html')
+
+
 @bp.route('/vehicle')
 def vehicle():
     get_auction = new_auction()

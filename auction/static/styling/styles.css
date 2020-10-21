@@ -28,15 +28,17 @@ html, body {
     width: 100%;
 }
 
-.login-background {
+.login-background, .register-background {
     height: 100%;
     width: 100%;
     background: url(../images/login-wallpaper-audi.jpg) no-repeat center;
     background-size: cover;
     position: fixed;
+    filter: blur(0.15rem);
+    transform: scale(1.1);
 }
 
-.login-menu {
+.login-menu, .register-menu {
     height: 100vh;
     background-color: whitesmoke;
     padding-left: 2rem;
@@ -45,6 +47,10 @@ html, body {
 
 .login-input {
     padding-top: 55%;
+}
+
+.register-input {
+    padding-top: 40%;
 }
 
 
