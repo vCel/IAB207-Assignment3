@@ -36,7 +36,7 @@ def account():
 @bp.route('/login', methods=["POST", "GET"])
 def login():
     if request.method == "POST":
-        user = request.form["email"] #change to name later
+        user = request.form["email"]  # change to name later
         session["user"] = user
         return redirect(url_for("user"))
     return render_template('login.html')
@@ -44,6 +44,7 @@ def login():
 
 @bp.route('/register')
 def register():
+
     return render_template('register.html')
 
 
@@ -59,7 +60,8 @@ def vehicle():
 
 
 def new_auction():
-    newAuction = Auction("2018 Honda Civic VTI-LX", "description", "$15,000", "$20,000")
+    newAuction = Auction("2018 Honda Civic VTI-LX",
+                         "description", "$15,000", "$20,000")
     newAuction.add_detail("brand", "Honda")
     newAuction.add_detail("model", "Civic")
     newAuction.add_detail("transmission", "Automatic")
@@ -75,7 +77,8 @@ def new_auction():
 def featured():
     newList = list()
     for i in range(4):
-        newAuction = Auction("2015 Mercedes A180", "description", "$25,000", "$35,000", 60)
+        newAuction = Auction("2015 Mercedes A180",
+                             "description", "$25,000", "$35,000", 60)
         newList.append(newAuction)
 
     return newList
@@ -84,7 +87,8 @@ def featured():
 def recent():
     newList = list()
     for i in range(4):
-        newAuction = Auction("2015 Mercedes A180", "description", "$25,000", "$35,000", 60)
+        newAuction = Auction("2015 Mercedes A180",
+                             "description", "$25,000", "$35,000", 60)
         newList.append(newAuction)
 
     return newList
@@ -93,7 +97,8 @@ def recent():
 def popular():
     newList = list()
     for i in range(5):
-        newAuction = Auction("2015 Mercedes A180", "description", "$25,000", "$35,000", 60)
+        newAuction = Auction("2015 Mercedes A180",
+                             "description", "$25,000", "$35,000", 60)
         newList.append(newAuction)
 
     return newList
