@@ -44,8 +44,11 @@ def login():
 
 @bp.route('/register')
 def register():
-
     return render_template('register.html')
+
+@bp.route('/forgot')
+def forgot():
+    return render_template('forgotpass.html')
 
 
 @bp.route('/vehicle')
