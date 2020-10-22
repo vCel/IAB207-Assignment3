@@ -46,8 +46,15 @@ def create_app():
 
     @app.errorhandler(404)
     def not_found(e):  # error view function
-        error = 'This page does not exist'
-        return "error"
+        errortype = 404
+        error = 'Page not found'
+        return render_template("error404.html", mes=errortype ,error=error)
+
+    @app.errorhandler(500)
+    def not_found(e):  # error view function
+        errortype = 500
+        error = 'Internal server error'
+        return render_template("error404.html", mes=errortype, error=error)
     
     return app
 

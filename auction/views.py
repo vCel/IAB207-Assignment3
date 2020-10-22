@@ -36,7 +36,7 @@ def account():
 @bp.route('/login', methods=["POST", "GET"])
 def login():
     if request.method == "POST":
-        user = request.form["email"] #change to name later
+        user = request.form["email"]  # change to name later
         session["user"] = user
         return redirect(url_for("user"))
     return render_template('login.html')

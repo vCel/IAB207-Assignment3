@@ -39,7 +39,8 @@ html, body {
 }
 
 .login-menu, .register-menu {
-    height: 100vh;
+    min-height: 100vh;
+    height: 100%;
     background-color: whitesmoke;
     padding-left: 2rem;
     padding-right: 2rem;
@@ -49,8 +50,36 @@ html, body {
     padding-top: 55%;
 }
 
+.line-btn::after {
+    content: '';
+    display: block;
+    float: right;
+    position: absolute;
+    background-color: #007bff;
+    width: 0.05rem;
+    margin-top: 0.65rem;
+    height: 1.25rem;
+}
+
 .register-input {
     padding-top: 40%;
+}
+
+.background-404 {
+    height: 100%;
+    width: 100%;
+    background: url(../images/porche-404.jpg) no-repeat center;
+    background-size: cover;
+    position: fixed;
+    filter: blur(0.15rem);
+    transform: scale(1.1);
+}
+
+.error-message {
+    background-color: white;
+    padding: 5rem !important;
+    border: 0.1rem solid black;
+    z-index: 1;
 }
 
 
