@@ -35,16 +35,27 @@ def account():
 
 @bp.route('/login', methods=["POST", "GET"])
 def login():
-    if request.method == "POST":
-        user = request.form["email"]  # change to name later
-        session["user"] = user
-        return redirect(url_for("user"))
+    session['email'] = request.values.get('email')
+    if 'email' in session:
+        print("email")
+    # if request.method == "POST":
+    #     user = request.form["email"]  # change to name later
+    #     session["user"] = user
+    #     return redirect(url_for("user"))
     return render_template('login.html')
 
 
 @bp.route('/register')
 def register():
     return render_template('register.html')
+
+
+@bp.route('/logout')
+def logout():
+    if 'email' in session:
+        session.pop('email', None)
+        return render_template('login.html')
+
 
 @bp.route('/forgot')
 def forgot():

@@ -34,3 +34,12 @@ class Review:
         self.user = user
         self.comment = comment
         self.rating = rating
+
+
+class User:
+    def __init__(self, email, password, user_id):
+        self.email = email
+        self.password = password
+        self.user_id = user_id
+
+    # def is_authenticated(self):

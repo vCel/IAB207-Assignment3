@@ -1,70 +1,107 @@
 <!DOCTYPE html>
 <html>
-  <html lang="en">
-    <head>
-        <!-- Required meta tags -->
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    
-        <!-- Bootstrap CSS -->
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-        <link rel="stylesheet" href="../static/styling/styles.css">
-        <link rel="icon" href="../static/images/logo.png">
-        <title>Car Auction</title>
-    </head>
-    <body>
-    <div class="login-background"></div>
+    <html lang="en">
+        <head>
+            <!-- Required meta tags -->
+            <meta charset="utf-8" />
+            <meta
+                name="viewport"
+                content="width=device-width, initial-scale=1, shrink-to-fit=no"
+            />
 
-      <div class="loginbox ">
-        <div class="container-fluid row">
-          <div class="col-md-8"></div>
-          <div class="col-md-4">
-            <div class="login-menu">
-              <div class="login-input">
-                <h2>Login</h2>
-                <!--update the action and the method with relevant information-->
-                <form action="/login", method="GET">
-                <!-- keeps the label and text in a group vertically stacked--> 
-                <div class="form-group">
-                <label for="email">Email:</label>
-                <input type="email" class="form-control" id="email" placeholder="Enter email" name="email">
+            <!-- Bootstrap CSS -->
+            <link
+                rel="stylesheet"
+                href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+                integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+                crossorigin="anonymous"
+            />
+            <link rel="stylesheet" href="../static/styling/styles.css" />
+            <link rel="icon" href="../static/images/logo.png" />
+            <title>Car Auction</title>
+        </head>
+        <body>
+            <div class="login-background"></div>
+
+            <div class="loginbox">
+                <div class="container-fluid row">
+                    <div class="col-md-8"></div>
+                    <div class="col-md-4">
+                        <div class="login-menu">
+                            <div class="login-input">
+                                <h2>Login</h2>
+                                <!--update the action and the method with relevant information-->
+                                <form action="/login" , method="POST">
+                                    <!-- keeps the label and text in a group vertically stacked-->
+                                    <div class="form-group">
+                                        <label for="email">Email:</label>
+                                        <input
+                                            type="email"
+                                            class="form-control"
+                                            id="email"
+                                            placeholder="Enter email"
+                                            name="email"
+                                        />
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="pwd">Password:</label>
+                                        <input
+                                            type="password"
+                                            class="form-control"
+                                            id="pwd"
+                                            placeholder="Enter password"
+                                            name="pwd"
+                                        />
+                                    </div>
+
+                                    <button
+                                        type="submit"
+                                        class="btn btn-block btn-primary"
+                                    >
+                                        Login
+                                    </button>
+                                </form>
+
+                                <div class="text-center">
+                                    <div
+                                        class="btn-group flex-wrap"
+                                        role="group"
+                                        aria-label="login-group"
+                                    >
+                                        <a
+                                            type="button"
+                                            class="btn btn-link"
+                                            id="group-login"
+                                            href="/forgot"
+                                            ><small
+                                                >Forgot my password</small
+                                            ></a
+                                        >
+                                        <span class="line-btn"></span>
+                                        <a
+                                            type="button"
+                                            class="btn btn-link"
+                                            id="group-login"
+                                            href="/register"
+                                            ><small>Create an account</small></a
+                                        >
+                                        <span class="line-btn"></span>
+                                        <a
+                                            type="button"
+                                            class="btn btn-link"
+                                            href="/"
+                                            ><small
+                                                >Continue as a guest</small
+                                            ></a
+                                        >
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-
-                <div class="form-group">
-                <label for="pwd">Password:</label>
-                <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="pwd">
-                </div>
-
-                <button type="submit" class="btn btn-block btn-primary">Login</button>
-                </form>
-
-                <div class="text-center">
-                  <div class="btn-group flex-wrap" role="group" aria-label="login-group">
-                    <a type="button" class="btn btn-link" id="group-login" href="/forgot"><small>Forgot my password</small></a>
-                    <span class="line-btn"></span>
-                    <a type="button" class="btn btn-link" id="group-login" href="/register"><small>Create an account</small></a>
-                    <span class="line-btn"></span>
-                    <a type="button" class="btn btn-link" href="/"><small>Continue as a guest</small></a>
-                  </div>
-                </div>
-                
-                
-              </div>
-              
             </div>
-            
-          </div>
-          
-        </div>
-      </div>
-
-
-
-        
-
-
-
-
-
-</body>
+        </body>
+    </html>
 </html>
