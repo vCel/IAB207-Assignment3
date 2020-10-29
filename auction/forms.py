@@ -6,8 +6,8 @@ from wtforms.validators import InputRequired, Length, Email, EqualTo
 
 # creates the login information
 class LoginForm(FlaskForm):
-    user_name = StringField("User Name", validators=[
-                            InputRequired('Enter user name')])
+    email_id = StringField("Email Address", validators=[
+                           Email("Please enter a valid email")])
     password = PasswordField("Password", validators=[
                              InputRequired('Enter user password')])
     submit = SubmitField("Login")
@@ -17,9 +17,11 @@ class LoginForm(FlaskForm):
 
 class RegisterForm(FlaskForm):
 
-    user_name = StringField("User Name", validators=[InputRequired()])
-    email_id = StringField("Email Address", validators=[
-                           Email("Please enter a valid email")])
+    firstName = StringField("First Name", validators=[InputRequired()])
+    lastName = StringField("Last name", validators=[InputRequired()])
+    user_name = StringField("username", validators=[InputRequired()])
+    email = StringField("Email Address", validators=[
+        Email("Please enter a valid email")])
 
     # add buyer/seller - check if it is a buyer or seller hint : Use RequiredIf field
 

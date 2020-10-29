@@ -3,16 +3,16 @@ from flask import (
 )
 from werkzeug.security import generate_password_hash, check_password_hash
 #from .models import User
-from .forms import LoginForm, RegisterForm
+from auction.forms import LoginForm, RegisterForm
 from flask_login import login_user, login_required, logout_user, UserMixin
-from . import db
+from auction import db
 
 
 # create a blueprint
-bp = Blueprint('auth', __name__)
+auth = Blueprint('auth', __name__)
 
 
-@bp.route('/login', methods=['GET', 'POST'])
+@auth.route('/login', methods=['GET', 'POST'])
 def authenticate():  # view function
     print('In Login View function')
     login_form = LoginForm()

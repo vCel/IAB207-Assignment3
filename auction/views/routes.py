@@ -1,5 +1,5 @@
 from flask import Blueprint, render_template, request, session
-from .models import Auction
+from auction.models import Auction
 
 bp = Blueprint('main', __name__)
 
