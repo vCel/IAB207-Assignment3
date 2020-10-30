@@ -5,7 +5,7 @@
         <!-- Required meta tags -->
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    
+
         <!-- Bootstrap CSS -->
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
         <link rel="stylesheet" href="../static/styling/styles.css">
@@ -17,55 +17,135 @@
 
       <div class="registerbox ">
         <div class="container-fluid row">
-          <div class="col-md-8"></div>
+          <div class="col-md-8">
+
+
+
+          </div>
           <div class="col-md-4">
+
             <div class="register-menu">
+              <div class="container">
+              {% with messages = get_flashed_messages() %}
+              {% if messages %}
+                  {% for message in get_flashed_messages() %}
+                  <div class ="alert alert-warning">
+                      <button type="button" class="close" data-dismiss="alert" aria-label="close">x</button>
+                      {{message}}
+                  </div>
+                  {% endfor %}
+              {% endif %}
+              {% endwith %}
+
+              </div>
               <div class="register-input">
                 <h2>Create an account</h2>
                 <!--update the action and the method with relevant information-->
-                <form action="/register", method="GET">
-                <!-- keeps the label and text in a group vertically stacked--> 
+                <form action="" method="POST">
+                  {{ form.hidden_tag() }}
+                <!-- keeps the label and text in a group vertically stacked-->
+
+
+
+
+
 
                 <div class="form-group">
-                <label for="first-name">First name:</label>
-                <input type="first-name" class="form-control" id="first-name" placeholder="First name" name="first-name">
+                  {{ form.firstName.label()}}
+                  {% if form.firstName.errors %}
+                    {{ form.firstName(class="form-control is-invalid")}}
+                    <div class="invalid-feedback">
+                      {% for error in form.firstName.errors %}
+                        <span>{{ error }}</span>
+                      {% endfor %}
+                    </div>
+                  {% else %}
+                  {{ form.firstName(class="form-control")}}
+                  {% endif %}
+                </div>
+                <div class="form-group">
+                  {{ form.lastName.label()}}
+                  {% if form.lastName.errors %}
+                    {{ form.lastName(class="form-control is-invalid")}}
+                    <div class="invalid-feedback">
+                      {% for error in form.lastName.errors %}
+                        <span>{{ error }}</span>
+                      {% endfor %}
+                    </div>
+                  {% else %}
+                  {{ form.lastName(class="form-control")}}
+                  {% endif %}
+                </div>
+                <div class="form-group">
+                  {{ form.user_name.label()}}
+                  {% if form.user_name.errors %}
+                    {{ form.user_name(class="form-control is-invalid")}}
+                    <div class="invalid-feedback">
+                      {% for error in form.user_name.errors %}
+                        <span>{{ error }}</span>
+                      {% endfor %}
+                    </div>
+                  {% else %}
+                  {{ form.user_name(class="form-control")}}
+                  {% endif %}
+                </div>
+                <div class="form-group">
+                  {{ form.email.label()}}
+                  {% if form.email.errors %}
+                    {{ form.email(class="form-control is-invalid")}}
+                    <div class="invalid-feedback">
+                      {% for error in form.email.errors %}
+                        <span>{{ error }}</span>
+                      {% endfor %}
+                    </div>
+                  {% else %}
+                  {{ form.email(class="form-control")}}
+                  {% endif %}
+                </div>
+                <div class="form-group">
+                  {{ form.password.label()}}
+                  {% if form.password.errors %}
+                    {{ form.password(class="form-control is-invalid")}}
+                    <div class="invalid-feedback">
+                      {% for error in form.password.errors %}
+                        <span>{{ error }}</span>
+                      {% endfor %}
+                    </div>
+                  {% else %}
+                  {{ form.password(class="form-control")}}
+                  {% endif %}
+                </div>
+                <div class="form-group">
+                  {{ form.confirm.label()}}
+                  {% if form.confirm.errors %}
+                    {{ form.confirm(class="form-control is-invalid")}}
+                    <div class="invalid-feedback">
+                      {% for error in form.confirm.errors %}
+                        <span>{{ error }}</span>
+                      {% endfor %}
+                    </div>
+                  {% else %}
+                  {{ form.confirm(class="form-control")}}
+                  {% endif %}
                 </div>
 
                 <div class="form-group">
-                <label for="last-name">Last name:</label>
-                <input type="last-name" class="form-control" id="last-name" placeholder="Last name" name="last-name">
+                  {{ form.submit(class="btn btn-block btn-primary")}}
                 </div>
-
-                <div class="form-group">
-                <label for="email">Email:</label>
-                <input type="email" class="form-control" id="email" placeholder="Enter email" name="email">
-                </div>
-
-                <div class="form-group">
-                <label for="pwd">Password:</label>
-                <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="pwd">
-                </div>
-
-                <div class="form-group">
-                <label for="con-pwd">Confirm Password:</label>
-                <input type="password" class="form-control" id="con-pwd" placeholder="Confirm password" name="con-pwd">
-                </div>
-
-                <button type="submit" class="btn btn-block btn-primary">Register</button>
                 </form>
                 <a type="button" class="btn btn-block btn-link" href="/login"><small>I already have an account</small></a>
               </div>
-              
+
             </div>
-            
+
           </div>
-          
+
         </div>
       </div>
 
 
 
-        
+
 
 
 

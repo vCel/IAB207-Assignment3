@@ -21,15 +21,17 @@ def create_app():
     app.secret_key = 'utroutoru'
     # set the app configuration data
     app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-    app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///marketplace.sqlite'
+    app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///marketplace.db'
     # initialize db with flask app
     db.init_app(app)
     login_manager.init_app(app)
 
     bootstrap = Bootstrap(app)
 
-    from auction.views.routes import bp
-    app.register_blueprint(bp)
+    from auction.views.routes import main
+    from auction.sell.routes import post
+    app.register_blueprint(main)
+    app.register_blueprint(post)
 
     from auction.auth.routes import auth
     app.register_blueprint(auth)

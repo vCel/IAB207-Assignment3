@@ -14,7 +14,7 @@
   <body>
 
     <!-- Navbar -->
-    <nav class="navbar sticky-top navbar-expand-md navbar-light bg-light"> 
+    <nav class="navbar sticky-top navbar-expand-md navbar-light bg-light">
         <div class="container-fluid py-1">
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive">
                 <span class="navbar-toggler-icon"></span>
@@ -31,9 +31,20 @@
                     <li class="nav-item">
                         <a href="/sell" class="nav-link">Sell My Car</a>
                     </li>
+                  
+                    {% if current_user.is_authenticated %}
+                      <li class="nav-item">
+                          <a href="/account" class="nav-link">My Account</a>
+                      </li>
+
+
+                    {% else %}
                     <li class="nav-item">
-                        <a href="/account" class="nav-link">My Account</a>
+                        <a href="{{url_for('auth.login')}}" class="nav-link">Login</a>
                     </li>
+                    {% endif %}
+
+
                 </ul>
             </div>
         </div>

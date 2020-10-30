@@ -10,96 +10,195 @@
 <!-- Form for creating a listing -->
 <div class="listingForm">
     <div class="container">
-        <form>
+        <form action="" method="POST">
+          {{ form.hidden_tag() }}
             <div class="row">
                 <!-- Left side -->
                 <div class="col-md-6">
+                  <div class="form-group">
+                    {{ form.title.label()}}
+                    {% if form.title.errors %}
+                      {{ form.title(class="form-control is-invalid")}}
+                      <div class="invalid-feedback">
+                        {% for error in form.title.errors %}
+                          <span>{{ error }}</span>
+                        {% endfor %}
+                      </div>
+                    {% else %}
+                    {{ form.title(class="form-control")}}
+                    {% endif %}
+                  </div>
+                  <div class="form-group">
+                    {{ form.description.label()}}
+                    {% if form.description.errors %}
+                      {{ form.description(class="form-control is-invalid")}}
+                      <div class="invalid-feedback">
+                        {% for error in form.description.errors %}
+                          <span>{{ error }}</span>
+                        {% endfor %}
+                      </div>
+                    {% else %}
+                    {{ form.description(class="form-control")}}
+                    {% endif %}
+                  </div>
+
+                    <div class="form-row mt-1">
+                        <div class="form-group col-md-6">
+                          {{ form.brand.label()}}
+                          {% if form.brand.errors %}
+                            {{ form.brand(class="form-control is-invalid")}}
+                            <div class="invalid-feedback">
+                              {% for error in form.brand.errors %}
+                                <span>{{ error }}</span>
+                              {% endfor %}
+                            </div>
+                          {% else %}
+                          {{ form.brand(class="form-control")}}
+                          {% endif %}
+                        </div>
+                        <div class="form-group col-md-6">
+                          {{ form.model.label()}}
+                          {% if form.model.errors %}
+                            {{ form.model(class="form-control is-invalid")}}
+                            <div class="invalid-feedback">
+                              {% for error in form.model.errors %}
+                                <span>{{ error }}</span>
+                              {% endfor %}
+                            </div>
+                          {% else %}
+                          {{ form.model(class="form-control")}}
+                          {% endif %}
+                        </div>
+                    </div>
+                    <div class="form-row mt-1">
+                        <div class="form-group col-md-6">
+                          {{ form.transmission.label()}}
+                          {% if form.transmission.errors %}
+                            {{ form.transmission(class="form-control is-invalid")}}
+                            <div class="invalid-feedback">
+                              {% for error in form.transmission.errors %}
+                                <span>{{ error }}</span>
+                              {% endfor %}
+                            </div>
+                          {% else %}
+                          {{ form.transmission(class="form-control")}}
+                          {% endif %}
+                        </div>
+                        <div class="form-group col-md-6">
+                          {{ form.colour.label()}}
+                          {% if form.colour.errors %}
+                            {{ form.colour(class="form-control is-invalid")}}
+                            <div class="invalid-feedback">
+                              {% for error in form.colour.errors %}
+                                <span>{{ error }}</span>
+                              {% endfor %}
+                            </div>
+                          {% else %}
+                          {{ form.colour(class="form-control")}}
+                          {% endif %}
+                        </div>
+                    </div>
+                    <div class="form-row mt-1">
+                        <div class="form-group col-md-6">
+                          {{ form.body.label()}}
+                          {% if form.body.errors %}
+                            {{ form.body(class="form-control is-invalid")}}
+                            <div class="invalid-feedback">
+                              {% for error in form.body.errors %}
+                                <span>{{ error }}</span>
+                              {% endfor %}
+                            </div>
+                          {% else %}
+                          {{ form.body(class="form-control")}}
+                          {% endif %}
+                        </div>
+                        <div class="form-group col-md-6">
+                          {{ form.year.label()}}
+                          {% if form.year.errors %}
+                            {{ form.year(class="form-control is-invalid")}}
+                            <div class="invalid-feedback">
+                              {% for error in form.year.errors %}
+                                <span>{{ error }}</span>
+                              {% endfor %}
+                            </div>
+                          {% else %}
+                          {{ form.year(class="form-control")}}
+                          {% endif %}
+                        </div>
+                    </div>
+                    <div class="form-row mt-1">
+                        <div class="form-group col-md-6">
+                          {{ form.registration.label()}}
+                          {% if form.registration.errors %}
+                            {{ form.registration(class="form-control is-invalid")}}
+                            <div class="invalid-feedback">
+                              {% for error in form.registration.errors %}
+                                <span>{{ error }}</span>
+                              {% endfor %}
+                            </div>
+                          {% else %}
+                          {{ form.registration(class="form-control")}}
+                          {% endif %}
+                        </div>
+                        <div class="form-group col-md-6">
+                          {{ form.mileage.label()}}
+                          {% if form.mileage.errors %}
+                            {{ form.mileage(class="form-control is-invalid")}}
+                            <div class="invalid-feedback">
+                              {% for error in form.mileage.errors %}
+                                <span>{{ error }}</span>
+                              {% endfor %}
+                            </div>
+                          {% else %}
+                          {{ form.mileage(class="form-control")}}
+                          {% endif %}
+                        </div>
+                    </div>
                     <div class="form-group">
-                        <label for="listtitle">Title</label>
-                        <input class="form-control" type="text" placeholder="Title" aria-label="Title" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="listDescription">Description</label>
-                        <textarea class="form-control" placeholder="Description" required></textarea>
-                    </div>
-                    <div class="form-row mt-1">
-                        <div class="form-group col-md-6">
-                            <label for="listBrand">Brand</label>
-                            <select class="form-control" id="listBrand" required>
-                                <option>Select Brand</option>
-                                <option>...</option>
-                            </select>
+                      {{ form.location.label()}}
+                      {% if form.location.errors %}
+                        {{ form.location(class="form-control is-invalid")}}
+                        <div class="invalid-feedback">
+                          {% for error in form.location.errors %}
+                            <span>{{ error }}</span>
+                          {% endfor %}
                         </div>
-                        <div class="form-group col-md-6">
-                            <label for="listModel">Model</label>
-                            <select class="form-control" id="listModel" required>
-                                <option>Select Model</option>
-                                <option>...</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="form-row mt-1">
-                        <div class="form-group col-md-6">
-                            <label for="listTransmission">Transmission</label>
-                            <select class="form-control" id="listTransmission" required>
-                                <option>Select Transmission</option>
-                                <option>Automatic</option>
-                                <option>Manual</option>
-                            </select>
-                        </div>
-                        <div class="form-group col-md-6">
-                            <label for="listColour">Colour</label>
-                            <select class="form-control" id="listColour" required>
-                                <option>Select Colour</option>
-                                <option>...</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="form-row mt-1">
-                        <div class="form-group col-md-6">
-                            <label for="listBody">Body Type</label>
-                            <select class="form-control" id="listBody" required>
-                                <option>Select Body Type</option>
-                                <option>...</option>
-                            </select>
-                        </div>
-                        <div class="form-group col-md-6">
-                            <label for="listYear">Year</label>
-                            <select class="form-control" id="listYear" required>
-                                <option>Select Year</option>
-                                <option>...</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="form-row mt-1">
-                        <div class="form-group col-md-6">
-                            <label for="listRego">Registration</label>
-                            <input class="form-control" type="text" placeholder="Registration" aria-label="Registration" required>
-                        </div>
-                        <div class="form-group col-md-6">
-                            <label for="listMileage">Mileage</label>
-                            <input class="form-control" type="text" placeholder="Mileage" aria-label="Mileage" required>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="listLocation">Location</label>
-                        <input class="form-control" type="text" placeholder="Location" aria-label="Location" required>
+                      {% else %}
+                      {{ form.location(class="form-control")}}
+                      {% endif %}
                     </div>
                     <div class="form-row mt-1">
                         <div class="col-sm-6">
-                            <label for="inputMoney">Starting bid</label>
-                            <div class="input-group">
-                                <div class="input-group-prepend">
-                                    <div class="input-group-text">$</div>
-                                </div>
-                                <input class="form-control" type="text" id="inputMoney" placeholder="Amount">
-                                
+                          {{ form.start_bid.label()}}
+                          {% if form.start_bid.errors %}
+                            {{ form.start_bid(class="form-control is-invalid")}}
+                            <div class="invalid-feedback">
+                              {% for error in form.start_bid.errors %}
+                                <span>{{ error }}</span>
+                              {% endfor %}
                             </div>
+                          {% else %}
+                           <div class="input-group">
+                          <div class="input-group-prepend">
+                              <div class="input-group-text">$</div>
+                          </div>
+                          {{ form.start_bid(class="form-control")}}
+                          </div>
+                          {% endif %}
+
                         </div>
                         <div class="form-group col-sm-6">
-                            <label for="listDate">Auction End Date</label>
-                            <input class="form-control" id="listDate" type="date">
-                            
+                          {{ form.auction_end.label()}}
+                          {% if form.auction_end.errors %}
+                            {{ form.auction_end(class="form-control is-invalid")}}
+                            <div class="invalid-feedback">
+                              {% for error in form.auction_end.errors %}
+                                <span>{{ error }}</span>
+                              {% endfor %}
+                            </div>
+                          {% else %}
+                          {{ form.auction_end(class="form-control")}}
+                          {% endif %}
                         </div>
                     </div>
                 </div>
@@ -111,10 +210,20 @@
                     <figure class="figure">
                         <img src="../static/images/holden.jpg" class="img-thumbnail" id="listingImage">
                     </figure>
-                    
+
                     <div class="custom-file" id="uploadFile">
-                        <input type="file" class="custom-file-input" id="customFile" required>
-                        <label class="custom-file-label" for="customFile">Upload Image</label>
+
+                      {{ form.image.label()}}
+                      {% if form.image.errors %}
+                        {{ form.image(class="form-control is-invalid")}}
+                        <div class="invalid-feedback">
+                          {% for error in form.image.errors %}
+                            <span>{{ error }}</span>
+                          {% endfor %}
+                        </div>
+                      {% else %}
+                      {{ form.image(class="form-control")}}
+                      {% endif %}
                     </div>
                 </div>
             </div>
@@ -123,7 +232,8 @@
             <div class="listButton">
                 <div class="row">
                     <div class="col-md-6">
-                        <button class="btn btn-primary btn-lg btn-block" type="submit">Create Listing</button>
+                      {{ form.submit(class="btn btn-primary btn-lg btn-block")}}
+
                     </div>
                 </div>
             </div>

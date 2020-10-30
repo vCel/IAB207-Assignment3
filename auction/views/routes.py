@@ -1,31 +1,22 @@
 from flask import Blueprint, render_template, request, session
-from auction.models import Auction
+from auction.models import *
+from auction.forms import *
+from flask_login import current_user, login_required
 
-bp = Blueprint('main', __name__)
+main = Blueprint('main', __name__)
 
 
-@bp.route('/')
+@main.route('/')
 def index():
-    get_featured = featured()
-    get_recent = recent()
-    get_popular = popular()
-    return render_template('index.html',
-                           featuredList=get_featured,
-                           recentList=get_recent,
-                           popularList=get_popular)
+    return render_template('index.html')
 
 
-@bp.route('/listings')
+@main.route('/listings')
 def listings():
     return render_template('listings.html')
 
 
-@bp.route('/sell')
-def sell():
-    return render_template('sell.html')
-
-
-@bp.route('/account')
+@main.route('/account')
 def account():
     if "user" in session:
         user = session["user"]
@@ -33,36 +24,21 @@ def account():
     return render_template('login.html')
 
 
-@bp.route('/login', methods=["POST", "GET"])
-def login():
-    session['email'] = request.values.get('email')
-    if 'email' in session:
-        print("email")
-    # if request.method == "POST":
-    #     user = request.form["email"]  # change to name later
-    #     session["user"] = user
-    #     return redirect(url_for("user"))
-    return render_template('login.html')
 
 
-@bp.route('/register')
-def register():
-    return render_template('register.html')
-
-
-@bp.route('/logout')
+@main.route('/logout')
 def logout():
     if 'email' in session:
         session.pop('email', None)
         return render_template('login.html')
 
 
-@bp.route('/forgot')
+@main.route('/forgot')
 def forgot():
     return render_template('forgotpass.html')
 
 
-@bp.route('/vehicle')
+@main.route('/vehicle')
 def vehicle():
     get_auction = new_auction()
     return render_template('vehicle.html',
@@ -72,7 +48,7 @@ def vehicle():
                            startBid=get_auction.startBid,
                            bid=get_auction.bid)
 
-
+'''
 def new_auction():
     newAuction = Auction("2018 Honda Civic VTI-LX",
                          "description", "$15,000", "$20,000")
@@ -116,3 +92,4 @@ def popular():
         newList.append(newAuction)
 
     return newList
+'''

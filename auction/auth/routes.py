@@ -2,9 +2,9 @@ from flask import (
     Blueprint, flash, render_template, request, url_for, redirect
 )
 from werkzeug.security import generate_password_hash, check_password_hash
-#from .models import User
+from auction.models import User
 from auction.forms import LoginForm, RegisterForm
-from flask_login import login_user, login_required, logout_user, UserMixin
+from flask_login import login_user, login_required, logout_user, UserMixin, current_user
 from auction import db
 
 
@@ -13,54 +13,59 @@ auth = Blueprint('auth', __name__)
 
 
 @auth.route('/login', methods=['GET', 'POST'])
-def authenticate():  # view function
+def login():  # view function
+    if current_user.is_authenticated:
+        print('AUUUU')
     print('In Login View function')
-    login_form = LoginForm()
+    form = LoginForm()
     error = None
-    if(login_form.validate_on_submit() == True):
-        user_name = login_form.user_name.data
-        password = login_form.password.data
-        u1 = User.query.filter_by(name=user_name).first()
-        if u1 is None:
-            error = 'Incorrect user name'
-        # takes the hash and password
-        elif not check_password_hash(u1.password_hash, password):
-            error = 'Incorrect password'
-        if error is None:
-            login_user(u1)
-            # this gives the url from where the login page was accessed
-            nextp = request.args.get('next')
-            print(nextp)
-            if next is None or not nextp.startswith('/'):
-                return redirect(url_for('index'))
-            return redirect(nextp)
-        else:
+    if form.validate_on_submit():
+        email = form.email_id.data
+        password = form.password.data
+        user_exists = User.query.filter_by(email=email).first()
+        if not user_exists:
+            error = 'User does not exists'
             flash(error)
-    return render_template('user.html', form=login_form, heading='Login')
+            return render_template('login.html', form=form, heading='Login')
+        # takes the hash and password
+        elif not user_exists.pass_hash == password:
+            error = 'Incorrect password'
+            flash(error)
+            return render_template('login.html', form=form, heading='Login')
+        else:
+            login_user(user_exists)
+            # this gives the url from where the login page was accessed
+
+            return redirect(url_for('main.index'))
 
 
-# @bp.route('/register', methods=['GET', 'POST'])
-# def authenticate():  # view function
-#     print('In Register View function')
-#     registration_form = RegistrationForm()
-#     error = None
-#     if(registration_form.validate_on_submit() == True):
-#         user_name = registration_form.user_name.data
-#         password = registration_form.password.data
-#         u1 = User.query.filter_by(name=user_name).first()
-#         if u1 is None:
-#             error = 'Incorrect user name'
-#         # takes the hash and password
-#         elif not check_password_hash(u1.password_hash, password):
-#             error = 'Incorrect password'
-#         if error is None:
-#             login_user(u1)
-#             # this gives the url from where the login page was accessed
-#             nextp = request.args.get('next')
-#             print(nextp)
-#             if next is None or not nextp.startswith('/'):
-#                 return redirect(url_for('index'))
-#             return redirect(nextp)
-#         else:
-#             flash(error)
-#     return render_template('user.html', form=registration_form, heading='Login')
+            flash(error)
+    return render_template('login.html', form=form, heading='Login')
+
+
+@auth.route('/register', methods=['GET', 'POST'])
+def register():  # view function
+    form = RegisterForm()
+    if form.validate_on_submit():
+        print('POST')
+        first_name = form.firstName.data
+        last_name = form.lastName.data
+        user_name = form.user_name.data
+        email = form.email.data
+        password = form.password.data
+
+        userExists = User.query.filter_by(email=email).first()
+        userExists2 = User.query.filter_by(username=user_name).first()
+
+        if not userExists and not userExists2:
+            concatenated_name = first_name + ' ' + last_name
+            user = User(name=concatenated_name,username=user_name,email=email,pass_hash=password)
+            db.session.add(user)
+            db.session.commit()
+            print('User in db')
+
+            flash('Created ! ')
+        else:
+            flash('User already exists !')
+
+    return render_template('register.html', form=form)

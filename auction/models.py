@@ -8,7 +8,7 @@ def load_user(user_id):
     return User.query.get(int(user_id))
 
 
-class User(db.Model):
+class User(db.Model, UserMixin):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(200), nullable=False)
     username = db.Column(db.String(100), unique=True, nullable=False)
@@ -28,10 +28,12 @@ class Auction(db.Model):
     brand = db.Column(db.String(100), nullable=False)
     model = db.Column(db.String(100), nullable=False)
     transmision = db.Column(db.String(100), nullable=False)
+    colour = db.Column(db.String(100), nullable=False)
     body = db.Column(db.String(100), nullable=False)
     year = db.Column(db.String(100), nullable=False)
-    mileage = db.Column(db.String(100), nullable=False)
     rego = db.Column(db.String(100), nullable=False)
+    mileage = db.Column(db.String(100), nullable=False)
+    location = db.Column(db.String(100), nullable=False)
     image = db.Column(db.String(200), nullable=False)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
 
