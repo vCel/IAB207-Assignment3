@@ -15,7 +15,7 @@ auth = Blueprint('auth', __name__)
 @auth.route('/login', methods=['GET', 'POST'])
 def login():  # view function
     if current_user.is_authenticated:
-        print('AUUUU')
+        print('Is Authenticated')
     print('In Login View function')
     form = LoginForm()
     error = None
@@ -24,13 +24,13 @@ def login():  # view function
         password = form.password.data
         user_exists = User.query.filter_by(email=email).first()
         if not user_exists:
-            error = 'User does not exists'
-            flash(error,'warning')
+            error = 'User does not exist'
+            flash(error, 'warning')
             return render_template('login.html', form=form, heading='Login')
         # takes the hash and password
         elif not user_exists.pass_hash == password:
             error = 'Incorrect password'
-            flash(error,'warning')
+            flash(error, 'warning')
             return render_template('login.html', form=form, heading='Login')
         else:
             login_user(user_exists)
@@ -38,8 +38,7 @@ def login():  # view function
 
             return redirect(url_for('main.index'))
 
-
-            flash(error,'warning')
+            flash(error, 'warning')
     return render_template('login.html', form=form, heading='Login')
 
 
@@ -59,13 +58,14 @@ def register():  # view function
 
         if not userExists and not userExists2:
             concatenated_name = first_name + ' ' + last_name
-            user = User(name=concatenated_name,username=user_name,email=email,pass_hash=password)
+            user = User(name=concatenated_name, username=user_name,
+                        email=email, pass_hash=password)
             db.session.add(user)
             db.session.commit()
             print('User in db')
 
-            flash('Created ! ','success')
+            flash('Created ! ', 'success')
         else:
-            flash('User already exists !','warning')
+            flash('User already exists !', 'warning')
 
     return render_template('register.html', form=form)
