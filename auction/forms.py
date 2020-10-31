@@ -47,5 +47,6 @@ class SellCar(FlaskForm):
     location = StringField("Location", validators=[InputRequired()])
     start_bid = FloatField("Starting bid", validators=[InputRequired()])
     auction_end = DateField("Auction End Date", validators=[InputRequired()])
+    #image = FileField('Upload Image',validators=[DataRequired(),FileAllowed(['jpeg','png','jpg'])])
     image = FileField('Upload Image',validators=[DataRequired(),FileAllowed(['jpeg','png','jpg'])])
     submit = SubmitField("Create Listing")

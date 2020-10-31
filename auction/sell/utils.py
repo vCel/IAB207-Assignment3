@@ -11,6 +11,7 @@ def save_picture(form_picture):
                                 'static/img/products',
                                 picture_fn)
     picture_fn = '/static/img/products/' + picture_fn
+
     size = (800, 1200)
     i = Image.open(form_picture)
     i.thumbnail(size)

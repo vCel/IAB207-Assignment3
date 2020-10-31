@@ -34,6 +34,7 @@ class Auction(db.Model):
     rego = db.Column(db.String(100), nullable=False)
     mileage = db.Column(db.String(100), nullable=False)
     location = db.Column(db.String(100), nullable=False)
+    auction_end = db.Column(db.DateTime, nullable=False)
     image = db.Column(db.String(200), nullable=False)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
 

@@ -12,6 +12,7 @@
     <div class="container">
         <form action="" method="POST">
           {{ form.hidden_tag() }}
+          {{ form.csrf_token }}
             <div class="row">
                 <!-- Left side -->
                 <div class="col-md-6">
@@ -211,20 +212,17 @@
                         <img src="../static/images/holden.jpg" class="img-thumbnail" id="listingImage">
                     </figure>
 
-                    <div class="custom-file" id="uploadFile">
 
-                      {{ form.image.label()}}
-                      {% if form.image.errors %}
-                        {{ form.image(class="form-control is-invalid")}}
-                        <div class="invalid-feedback">
+                    <div class="form-group">
+                        {{ form.image.label(class="form-control-label") }}
+                        {{ form.image(class="form-control-file")}}
+                        {% if form.image.errors %}
                           {% for error in form.image.errors %}
-                            <span>{{ error }}</span>
+                          <span class="text-danger">{{ error }}</span>
                           {% endfor %}
-                        </div>
-                      {% else %}
-                      {{ form.image(class="form-control")}}
-                      {% endif %}
-                    </div>
+                        {% endif %}
+                  </div>
+
                 </div>
             </div>
 
