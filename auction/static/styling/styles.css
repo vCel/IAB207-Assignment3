@@ -115,9 +115,15 @@ html, body {
     padding-bottom: .5rem;
 }
 
-.indexListing .card {
+.indexListings .card {
     max-height: 30rem;
     max-width: 20rem;
+}
+
+.square{
+    display: block;
+    width: 250px;
+    height: 250px;
 }
 
 #status {
