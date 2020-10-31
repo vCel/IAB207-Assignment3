@@ -10,12 +10,14 @@ def load_user(user_id):
 
 class User(db.Model, UserMixin):
     id = db.Column(db.Integer, primary_key=True)
+    watchlist = db.Column(db.String(500), nullable=True)
     name = db.Column(db.String(200), nullable=False)
     username = db.Column(db.String(100), unique=True, nullable=False)
     email = db.Column(db.String(120), unique=True, nullable=False)
     pass_hash = db.Column(db.String(255), nullable=False)
     reviews = db.relationship('Review', backref='user', lazy=True)
     posts = db.relationship('Auction', backref='user', lazy=True)
+
 
 
 class Auction(db.Model):
@@ -35,6 +37,7 @@ class Auction(db.Model):
     mileage = db.Column(db.String(100), nullable=False)
     location = db.Column(db.String(100), nullable=False)
     auction_end = db.Column(db.DateTime, nullable=False)
+    bidsMade = db.Column(db.Integer,nullable=True,default=0)
     image = db.Column(db.String(200), nullable=False)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
 

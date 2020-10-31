@@ -1,4 +1,4 @@
-from flask import Blueprint, render_template, request, session
+from flask import Blueprint, render_template, request, session, redirect, url_for
 from auction.models import *
 from auction.forms import *
 from auction import db
@@ -20,7 +20,7 @@ def sell():
                                  status='open',
                                  brand=form.brand.data,
                                  model=form.model.data,
-                                 transmision=form.transmision.data,
+                                 transmision=form.transmission.data,
                                  colour=form.colour.data,
                                  body=form.body.data,
                                  year=form.year.data,
@@ -32,4 +32,5 @@ def sell():
                                  user=current_user)
         db.session.add(auction_object)
         db.session.commit()
+        return redirect(url_for('main.index'))
     return render_template('sell.html',form=form)

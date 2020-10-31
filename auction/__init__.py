@@ -28,14 +28,19 @@ def create_app():
 
     bootstrap = Bootstrap(app)
 
+    from auction.auth.routes import auth
     from auction.views.routes import main
     from auction.sell.routes import post
+    from auction.listings.routes import listings
+
     app.register_blueprint(main)
     app.register_blueprint(post)
-
-    from auction.auth.routes import auth
     app.register_blueprint(auth)
-    '''
+    app.register_blueprint(listings)
+
+
+
+
     @app.errorhandler(404)
     def not_found(e):  # error view function
         errortype = 404
@@ -47,7 +52,7 @@ def create_app():
         errortype = 500
         error = 'Internal server error'
         return render_template("error404.html", mes=errortype, error=error)
-    '''
+    
     return app
 
     # # initialize the login manager

@@ -1,52 +1,50 @@
-from flask import Blueprint, render_template, request, session
+from flask import Blueprint, render_template, request, session, flash, redirect, url_for
 from auction.models import *
 from auction.forms import *
-from flask_login import current_user, login_required
+from flask_login import current_user, login_required, logout_user
 
 main = Blueprint('main', __name__)
 
 
 @main.route('/')
 def index():
-    return render_template('index.html')
+    auctions = Auction.query.all()
+    send = []
+    for i in range(1,3):
+        try:
+            send.append(auctions[-i])
+        except:
+            break
 
-
-@main.route('/listings')
-def listings():
-    return render_template('listings.html')
+    return render_template('index.html',recent=send)
 
 
 @main.route('/account')
+@login_required
 def account():
-    if "user" in session:
-        user = session["user"]
-        return render_template('account.html', user=user)
-    return render_template('login.html')
+    watchlist = []
+    if current_user.watchlist != None:
+        for element in current_user.watchlist.split(',')[:-1]:
+            watchlist.append(Auction.query.get(int(element)))
+    return render_template('account.html',watchlist=watchlist,auctions=current_user.posts)
 
-
-
+@main.route('/close/<int:id>')
+@login_required
+def close_auction(id):
+    if not Auction.query.get(id) in current_user.posts:
+        abort(403)
+    else:
+        auction = Auction.query.get(id)
+        auction.status = 'closed'
+        db.session.commit()
+        flash('Auction closed !','danger')
+    return redirect(url_for('main.account'))
 
 @main.route('/logout')
 def logout():
-    if 'email' in session:
-        session.pop('email', None)
-        return render_template('login.html')
+    logout_user()
+    return redirect(url_for('main.index'))
 
-
-@main.route('/forgot')
-def forgot():
-    return render_template('forgotpass.html')
-
-
-@main.route('/vehicle')
-def vehicle():
-    get_auction = new_auction()
-    return render_template('vehicle.html',
-                           title=get_auction.title,
-                           description=get_auction.description,
-                           details=get_auction.details,
-                           startBid=get_auction.startBid,
-                           bid=get_auction.bid)
 
 '''
 def new_auction():

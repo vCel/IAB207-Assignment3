@@ -38,7 +38,7 @@ class SellCar(FlaskForm):
     description = TextAreaField("Description", validators=[InputRequired()])
     brand = StringField("Brand", validators=[InputRequired()])
     model = StringField("Model", validators=[InputRequired()])
-    transmission = SelectField("Transmission", choices=[('auto','Automatic'),('mech','Mechanic')],validators=[InputRequired()])
+    transmission = SelectField("Transmission", choices=[('Automatic','Automatic'),('Manual','Manual')],validators=[InputRequired()])
     colour = StringField("Colour", validators=[InputRequired()])
     body = StringField("Body Type", validators=[InputRequired()])
     year = StringField("Year", validators=[InputRequired()])

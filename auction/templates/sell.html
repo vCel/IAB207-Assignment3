@@ -10,7 +10,7 @@
 <!-- Form for creating a listing -->
 <div class="listingForm">
     <div class="container">
-        <form action="" method="POST">
+        <form action="" method="POST" enctype="multipart/form-data">
           {{ form.hidden_tag() }}
           {{ form.csrf_token }}
             <div class="row">

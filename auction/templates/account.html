@@ -3,7 +3,7 @@
 <!-- Title -->
 <div class="pageTitle">
     <div class="container">
-        <h2>Hello {{ user.email }}!</h2>
+        <h2>Hello {{ current_user.username }}!</h2>
     </div>
 </div>
 
@@ -17,16 +17,7 @@
                 <div class="left-tabs mb-5">
                     <ul class="nav nav-pills mb-4" id="account-pills" role="tablist">
                         <li class="nav-item">
-                            <a class="nav-link active" id="pills-summary-tab" data-toggle="pill" href="#pills-summary" aria-selected="true">Summary</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" id="pills-history-tab" data-toggle="pill" href="#pills-history" aria-selected="false">History</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" id="pills-listed-tab" data-toggle="pill" href="#pills-listed" aria-selected="false">Cars you listed</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" id="pills-account-tab" data-toggle="pill" href="#pills-account" aria-selected="false">Account</a>
+                            <a class="nav-link active" id="pills-summary-tab" data-toggle="pill" href="#pills-summary" aria-selected="true">Cars you listed</a>
                         </li>
                     </ul>
 
@@ -35,74 +26,31 @@
                         <!-- Summary -->
                         <div class="tab-pane fade show active" id="pills-summary" role="tabpanel" aria-labelledby="pills-summary-tab">
                             <ul class="list-group">
-                                <li class="list-group-item">
-                                    <div class="media">
-                                        <img class="mr-3" src="../static/images/toyota86.jpeg">
-                                        <div class="media-body">
-                                            <h6 class="my-1">2013 Toyota 86</h6>
-                                            <p class="card-text">Placed a bid for $15,000</p>
-                                            <p class="card-text float-right"><small class="text-muted">Yesterday, 11:25AM</small></p>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="list-group-item">
-                                    <div class="media">
-                                        <img class="mr-3" src="../static/images/civic.jpg">
-                                        <div class="media-body">
-                                            <h6 class="my-1">Honda Civic Type R</h6>
-                                            <p class="card-text">Listed with a starting bid of $30,000</p>
-                                            <p class="card-text float-right"><small class="text-muted">2 days ago</small></p>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="list-group-item">
-                                    <div class="media">
-                                        <img class="mr-3" src="../static/images/ae86.jpg">
-                                        <div class="media-body">
-                                            <h6 class="my-1">Toyota AE86</h6>
-                                            <p class="card-text">Listed with a starting bid of $45,000</p>
-                                            <p class="card-text float-right"><small class="text-muted">3 weeks ago</small></p>
-                                        </div>
-                                    </div>
-                                </li>
+                              {% for element in auctions %}
+                              <li class="list-group-item">
+                                  <div class="media">
+                                      <img class="mr-3" src="..{{element.image}}">
+                                      <div class="media-body">
+                                          <h6 class="my-1">{{element.title}}</h6>
+                                          <p class="card-text">Current bid: ${{element.bid}}</p>
+                                          <p class="card-text">First bid: ${{element.startBid}}</p>
+                                          <p class="card-text">Status: {{element.status}}</p>
+                                          <div class="row">
+                                            <div class="col-md-6">
+                                              <a href="{{url_for('main.close_auction',id=element.id)}}" class="btn btn-danger">Close auction</a>
+                                            </div>
+                                          </div>
+                                      </div>
+                                  </div>
+                              </li>
+                              {% endfor %}
+
+
+
+
                             </ul>
                         </div>
-                        <!-- History -->
-                        <div class="tab-pane fade" id="pills-history" role="tabpanel" aria-labelledby="pills-history-tab">
-                            <ul class="list-group">
-                                <li class="list-group-item">
-                                    <div class="media">
-                                        <img class="mr-3" src="../static/images/ae86.jpg">
-                                        <div class="media-body">
-                                            <h6 class="my-1">Toyota AE86</h6>
-                                            <p class="card-text">Sold for $62,000</p>
-                                            <p class="card-text float-right"><small class="text-muted">Today, 9:30AM</small></p>
-                                        </div>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
-                        <!-- Cars listed -->
-                        <div class="tab-pane fade" id="pills-listed" role="tabpanel" aria-labelledby="pills-listed-tab">
-                            <ul class="list-group">
-                                <li class="list-group-item">
-                                    <div class="media">
-                                        <img class="mr-3" src="../static/images/civic.jpg">
-                                        <div class="media-body">
-                                            <h6 class="my-1">Honda Civic Type R</h6>
-                                            <p class="card-text">Current bid: $32,400</p>
-                                            <a href="vehicle.html" class="btn btn-sm btn-primary mx-1 float-right">Details</a>
-                                            <a href="#" class="btn btn-sm btn-danger mx-1 float-right">Remove</a>
-                                            <p class="card-text"><small class="text-muted">Listed 2 days ago</small></p>
-                                        </div>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
-                        <!-- Account -->
-                        <div class="tab-pane fade" id="pills-account" role="tabpanel" aria-labelledby="pills-account-tab">
-                            <!-- Nothing here -->
-                        </div>
+
                     </div>
                 </div>
             </div>
@@ -111,86 +59,32 @@
             <div class="col-md-5">
                 <!-- Watchlist -->
                 <div class="watchList">
-                    <h3>Watchlist <span class="badge badge-dark">12</span></h3>
+                    <h3>Watchlist </h3>
                     <!-- Watchlist vehicles -->
                     <ul class="list-group">
-                        <li class="list-group-item">
-                            <div class="media">
-                                <img class="mr-3" src="../static/images/toyota86.jpeg">
-                                <div class="media-body">
-                                    <button type="button" class="close float-right" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
-                                    <h6 class="my-1">2013 Toyota 86</h6>
-                                    <p class="card-text float-right"><small class="text-secondary">Bid: $15,000</small></p>
-                                    <p class="card-text">Black</p>
-                                    <a href="vehicle.html" class="btn btn-sm btn-primary float-right">Details</a>
-                                    <p class="card-text"><small class="text-muted">Added 04/08/20</small></p>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="list-group-item">
-                            <div class="media">
-                                <img class="mr-3" src="../static/images/wrx.jpg">
-                                <div class="media-body">
-                                    <button type="button" class="close float-right" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
-                                    <h6 class="my-1">2019 Subaru WRX</h6>
-                                    <p class="card-text float-right"><small class="text-secondary">Ended</small></p>
-                                    <p class="card-text">White</p>
-                                    <a href="vehicle.html" class="btn btn-sm btn-primary float-right">Details</a>
-                                    <p class="card-text"><small class="text-muted">Added 03/08/20</small></p>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="list-group-item">
-                            <div class="media">
-                                <img class="mr-3" src="../static/images/evo.jpg">
-                                <div class="media-body">
-                                    <button type="button" class="close float-right" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
-                                    <h6 class="my-1">Mitsubishi Evo</h6>
-                                    <p class="card-text float-right"><small class="text-secondary">Ended</small></p>
-                                    <p class="card-text">Black</p>
-                                    <a href="vehicle.html" class="btn btn-sm btn-primary float-right">Details</a>
-                                    <p class="card-text"><small class="text-muted">Added 03/08/20</small></p>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="list-group-item">
-                            <div class="media">
-                                <img class="mr-3" src="../static/images/gtr.jpg">
-                                <div class="media-body">
-                                    <button type="button" class="close float-right" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
-                                    <h6 class="my-1">2017 Nissian GTR</h6>
-                                    <p class="card-text float-right"><small class="text-secondary">Ended</small></p>
-                                    <p class="card-text">Black</p>
-                                    <a href="vehicle.html" class="btn btn-sm btn-primary float-right">Details</a>
-                                    <p class="card-text"><small class="text-muted">Added 02/08/20</small></p>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="list-group-item">
-                            <div class="media">
-                                <img class="mr-3" src="../static/images/rx7.jpeg">
-                                <div class="media-body">
-                                    <button type="button" class="close float-right" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
-                                    <h6 class="my-1">Mazda RX7</h6>
-                                    <p class="card-text float-right"><small class="text-secondary">Ended</small></p>
-                                    <p class="card-text">White</p>
-                                    <a href="vehicle.html" class="btn btn-sm btn-primary float-right">Details</a>
-                                    <p class="card-text"><small class="text-muted">Added 27/07/20</small></p>
-                                </div>
-                            </div>
-                        </li>
+                      {% for element in watchlist %}
+                      <li class="list-group-item">
+                          <div class="media">
+                              <img class="mr-3" src="..{{element.image}}">
+                              <div class="media-body">
+                                  <button type="button" class="close float-right" aria-label="Close">
+                                      <span aria-hidden="true">&times;</span>
+                                  </button>
+                                  <h6 class="my-1">{{element.title}}</h6>
+                                  <p class="card-text float-right"><small class="text-secondary">Bid: ${{element.bid}}</small></p>
+                                  <p class="card-text">Colour: {{element.colour}}</p>
+                                  <p class="card-text">Bids made: {{element.bidsMade}}</p>
+                                  <a href="{{url_for('listings.vehicle',id=element.id)}}" class="btn btn-sm btn-primary float-right">Status: {{element.status}}</a>
+
+                              </div>
+                          </div>
+                      </li>
+                      {% endfor %}
+
+
+
                     </ul>
-                    </div>    
+                    </div>
                     <nav aria-label="Watchlist pages">
                         <ul class="pagination justify-content-center my-4">
                             <li class="page-item">
@@ -207,54 +101,14 @@
                                 <a class="page-link" href="#">&gt;&gt;</a>
                                 </li>
                         </ul>
-                    </nav>    
-                    </div>    
+                    </nav>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
 
-<!-- Recently viewed -->
-<div class="recentView mt-5">
-    <div class="container">
-        <h4>Recently Viewed</h4>
-        <div class="card-deck">
-            <div class="card">
-                <img src="../static/images/auction.jpg" class="card-img-top">
-                <div class="card-body">
-                    <h5 class="card-title">2015 Mercedes A180</h5>
-                    <p class="card-text text-right">$35,000</p>
-                    <a href="vehicle.html" class="stretched-link"></a>
-                </div>
-            </div>
-            <div class="card">
-                <img src="../static/images/auction.jpg" class="card-img-top">
-                <div class="card-body">
-                    <h5 class="card-title">2015 Mercedes A180</h5>
-                    <p class="card-text text-right">$35,000</p>
-                    <a href="vehicle.html" class="stretched-link"></a>
-                </div>
-            </div>
-            <div class="card">
-                <img src="../static/images/auction.jpg" class="card-img-top">
-                <div class="card-body">
-                    <h5 class="card-title">2015 Mercedes A180</h5>
-                    <p class="card-text text-right">$35,000</p>
-                    <a href="vehicle.html" class="stretched-link"></a>
-                </div>
-            </div>
-            <div class="card">
-                <img src="../static/images/auction.jpg" class="card-img-top">
-                <div class="card-body">
-                    <h5 class="card-title">2015 Mercedes A180</h5>
-                    <p class="card-text text-right">$35,000</p>
-                    <a href="vehicle.html" class="stretched-link"></a>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
 
 <!-- Footer -->
 <footer class="navbar navbar-dark navbar-static-bottom">

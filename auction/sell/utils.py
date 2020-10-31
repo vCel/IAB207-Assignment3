@@ -8,9 +8,9 @@ def save_picture(form_picture):
     _, file_extension = os.path.splitext(form_picture.filename)
     picture_fn = random_hex + file_extension
     picture_path = os.path.join(current_app.root_path,
-                                'static/img/products',
+                                'static/img',
                                 picture_fn)
-    picture_fn = '/static/img/products/' + picture_fn
+    picture_fn = '/static/img/' + picture_fn
 
     size = (800, 1200)
     i = Image.open(form_picture)

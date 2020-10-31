@@ -14,7 +14,7 @@
             </svg>
         </a>
         </div>
-        
+
     </div>
 </div>
 
@@ -88,15 +88,16 @@
     <div class="container">
         <h4>Featured</h4>
         <div class="card-deck">
-            {% for car in featuredList %}
+            {% for car in recent %}
             <div class="card" id="indexCard">
-                <img src="../static/images/auction.jpg" class="card-img-top">
+                <img src="..{{car.image}}" class="card-img-top">
                 <small><p class="card-text text-center", id="status">{{ car.status }}</p></small>
                 <div class="card-body">
                     <h5 class="card-title">{{ car.title }}</h5>
-                    <p class="card-text float-right">{{ car.bid }}</p>
-                    <p class="card-text"><small class="text-muted">Bids: {{ car.bidders }}</small></p>
-                    <a href="/vehicle" class="stretched-link"></a>
+                    <p class="card-text float-right">{{ car.transmission }}</p>
+                    <p class="card-text"><small class="text-muted">Current bid: {{ car.bid }}</small></p>
+                    <p class="card-text"><small class="text-muted">Bids made: {{ car.bidsMade }}</small></p>
+                    <a href="{{url_for('listings.vehicle',id=car.id)}}" class="stretched-link"></a>
                 </div>
             </div>
             {% endfor %}
@@ -104,7 +105,7 @@
     </div>
 </div>
 
-<!-- New -->
+<!-- New
 <div class="indexListings mt-5">
     <div class="container">
         <h4>Recent Listings</h4>
@@ -124,8 +125,9 @@
         </div>
     </div>
 </div>
-
+-->
 <!-- Top 5 Bids -->
+<!--
 <div class="indexListings mt-5">
     <div class="container">
         <h4>Popular</h4>
@@ -139,7 +141,7 @@
                     <p class="card-text float-right"><small class="text-muted">{{ car.bid }}</small></p>
                     <p class="card-text"><small class="text-muted">Bids: {{ car.bidders }}</small></p>
                     <a href="/vehicle" class="stretched-link"></a>
-                    
+
                 </div>
             </div>
             {% endfor %}
@@ -147,7 +149,7 @@
     </div>
 </div>
 
-<!-- Footer -->
+ Footer -->
 <footer class="navbar navbar-dark navbar-static-bottom">
     <div class="container-fluid">
         <div class="container">

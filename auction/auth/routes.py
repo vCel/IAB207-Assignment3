@@ -25,12 +25,12 @@ def login():  # view function
         user_exists = User.query.filter_by(email=email).first()
         if not user_exists:
             error = 'User does not exists'
-            flash(error)
+            flash(error,'warning')
             return render_template('login.html', form=form, heading='Login')
         # takes the hash and password
         elif not user_exists.pass_hash == password:
             error = 'Incorrect password'
-            flash(error)
+            flash(error,'warning')
             return render_template('login.html', form=form, heading='Login')
         else:
             login_user(user_exists)
@@ -39,7 +39,7 @@ def login():  # view function
             return redirect(url_for('main.index'))
 
 
-            flash(error)
+            flash(error,'warning')
     return render_template('login.html', form=form, heading='Login')
 
 
@@ -64,8 +64,8 @@ def register():  # view function
             db.session.commit()
             print('User in db')
 
-            flash('Created ! ')
+            flash('Created ! ','success')
         else:
-            flash('User already exists !')
+            flash('User already exists !','warning')
 
     return render_template('register.html', form=form)
