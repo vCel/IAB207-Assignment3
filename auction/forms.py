@@ -19,7 +19,7 @@ class RegisterForm(FlaskForm):
 
     firstName = StringField("First Name:", validators=[InputRequired()])
     lastName = StringField("Last name:", validators=[InputRequired()])
-    user_name = StringField("username:", validators=[InputRequired()])
+    user_name = StringField("Username:", validators=[InputRequired()])
     email = StringField("Email Address:", validators=[
         Email("Please enter a valid email")])
 
