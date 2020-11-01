@@ -1,1 +1,1 @@
-worker: python3.6 main.py
+web: gunicorn 'main:create_app()'
