@@ -6,3 +6,4 @@ flask-mail
 flask-SQLAlchemy
 flask-WTF
 flask_template
+email_validator
