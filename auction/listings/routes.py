@@ -14,7 +14,7 @@ def show():
     if request.method == 'POST':
         bidamount = request.form['bidAmount']
         id = request.form['id']
-        flash('Bid success !','success')
+        
         return redirect(url_for('listings.bid',id=id,bidamount=bidamount))
     return render_template('listings.html',vehicles=vehicles)
 
@@ -23,12 +23,13 @@ def show():
 def bid(id,bidamount):
 
     car_to_bid = Auction.query.get(id)
+    if car_to_bid.status != 'open':
+        flash('This auction is closed','warning')
+        return redirect(url_for('listings.vehicle',id=id))
     if float(bidamount) < car_to_bid.bid:
         flash('Amount must be higher','warning')
         return redirect(url_for('listings.vehicle',id=id))
-    if car_to_bid.status != 'open':
-        flash('Amount must be higher','warning')
-        return redirect(url_for('listings.vehicle',id=id))
+
     bid_obj = Bid(bid=float(bidamount),username=current_user.username,auction=car_to_bid)
     db.session.add(bid_obj)
     car_to_bid.bid = float(bidamount)
@@ -43,12 +44,13 @@ def vehicle(id):
     vehicle = Auction.query.get(id)
 
     if request.method == 'POST':
+        if vehicle.status != 'open':
+            flash('This auction is closed','warning')
+            return redirect(url_for('listings.vehicle',id=id))
         if float(request.form['newBidAmount']) < vehicle.bid:
             flash('Amount must be higher','warning')
             return redirect(url_for('listings.vehicle',id=id))
-        if vehicle.status != 'open':
-            flash('Amount must be higher','warning')
-            return redirect(url_for('listings.vehicle',id=id))
+
         bidamount = request.form['newBidAmount']
         bid_obj = Bid(bid=float(bidamount),username=current_user.username,auction=vehicle)
         db.session.add(bid_obj)

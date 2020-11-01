@@ -29,7 +29,7 @@
                               {% for element in auctions %}
                               <li class="list-group-item">
                                   <div class="media">
-                                      <img class="mr-3" src="..{{element.image}}">
+                                      <a href="{{url_for('listings.vehicle',id=element.id)}}"><img class="mr-3" src="..{{element.image}}"></a>
                                       <div class="media-body">
                                           <h6 class="my-1">{{element.title}}</h6>
                                           <p class="card-text">Current bid: ${{element.bid}}</p>
@@ -65,7 +65,8 @@
                       {% for element in watchlist %}
                       <li class="list-group-item">
                           <div class="media">
-                              <img class="mr-3" src="..{{element.image}}">
+                            <a href="{{url_for('listings.vehicle',id=element.id)}}"><img class="mr-3" src="..{{element.image}}"></a>
+
                               <div class="media-body">
                                   <button type="button" class="close float-right" aria-label="Close">
                                       <span aria-hidden="true">&times;</span>
