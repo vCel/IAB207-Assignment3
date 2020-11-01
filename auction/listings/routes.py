@@ -29,6 +29,8 @@ def bid(id,bidamount):
     if car_to_bid.status != 'open':
         flash('Amount must be higher','warning')
         return redirect(url_for('listings.vehicle',id=id))
+    bid_obj = Bid(bid=float(bidamount),username=current_user.username,auction=car_to_bid)
+    db.session.add(bid_obj)
     car_to_bid.bid = float(bidamount)
     car_to_bid.bidsMade += 1
     db.session.commit()
@@ -39,6 +41,7 @@ def bid(id,bidamount):
 @login_required
 def vehicle(id):
     vehicle = Auction.query.get(id)
+
     if request.method == 'POST':
         if float(request.form['newBidAmount']) < vehicle.bid:
             flash('Amount must be higher','warning')
@@ -47,6 +50,8 @@ def vehicle(id):
             flash('Amount must be higher','warning')
             return redirect(url_for('listings.vehicle',id=id))
         bidamount = request.form['newBidAmount']
+        bid_obj = Bid(bid=float(bidamount),username=current_user.username,auction=vehicle)
+        db.session.add(bid_obj)
         vehicle.bid = bidamount
         vehicle.bidsMade += 1
         db.session.commit()

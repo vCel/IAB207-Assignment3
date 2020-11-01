@@ -115,16 +115,9 @@ html, body {
     padding-bottom: .5rem;
 }
 
-.indexListings .card {
+.indexListing .card {
     max-height: 30rem;
     max-width: 20rem;
-}
-
-/* acc images */
-.square{
-    display: block;
-    width: 250px;
-    height: 250px;
 }
 
 #status {
