@@ -1,0 +1,8 @@
+pillow
+flask 
+flask-bootstrap
+flask-login
+flask-mail
+flask-SQLAlchemy
+flask-WTF
+flask_template
