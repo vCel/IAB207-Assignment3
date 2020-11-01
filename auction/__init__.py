@@ -54,22 +54,3 @@ def create_app():
         return render_template("error404.html", mes=errortype, error=error)
     
     return app
-
-    # # initialize the login manager
-    # login_manager = LoginManager()  # uncomment these later
-
-    # # set the name of the login function that lets user login
-    # # in our case it is auth.login (blueprintname.viewfunction name)
-
-    # login_manager.login_view = 'auth.login'
-    # login_manager.init_app(app)
-
-    # # create a user loader function takes userid and returns User
-    # # from .models import User  # importing here to avoid circular references
-    # #
-    # @login_manager.user_loader
-    # def load_user(user_id):
-    #     return User.query.get(int(user_id))
-
-    # importing views module here to avoid circular references
-    # a commonly used practice.
