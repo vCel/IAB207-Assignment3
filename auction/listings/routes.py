@@ -39,7 +39,6 @@ def bid(id,bidamount):
     return redirect(url_for('listings.show'))
 
 @listings.route('/car/<int:id>',methods=['POST','GET'])
-@login_required
 def vehicle(id):
     vehicle = Auction.query.get(id)
 

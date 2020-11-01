@@ -262,9 +262,6 @@
                 <div class="car-results">
                     <ul class="list-group">
                       {% for element in vehicles %}
-
-
-
                         <li class="list-group-item">
                             <div class="media">
                                 <figure class="figure">
@@ -301,7 +298,7 @@
                                         </div>
                                         <form method="POST">
                                             <div class="modal-body">
-                                                <h4 class="text-center">Current Bid: $ {{element.bid}}</h4>
+                                                <h4 class="text-center">Current Bid: ${{element.bid}}</h4>
                                                 <div class="input-group">
                                                     <div class="input-group-prepend">
                                                         <span class="input-group-text" id="bidArea">$</span>
@@ -320,9 +317,6 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
-
-                        
                         {% endfor %}
                     </ul>
                 </div>

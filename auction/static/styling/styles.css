@@ -115,9 +115,10 @@ html, body {
     padding-bottom: .5rem;
 }
 
-.indexListing .card {
+.indexListings .card {
     max-height: 30rem;
-    max-width: 20rem;
+    max-width: 15rem;
+    min-width: 14rem;
 }
 
 #status {
@@ -130,12 +131,16 @@ html, body {
     padding-top: 5rem;
 }
 
-.carThumbnail {
+.car-thumbnail {
     position: relative;
-    width: 50%;
+    width: 100%;
 }
 
-.carThumbnail img {
+.car-thumbnail .figure {
+    width: 100%;
+}
+
+.car-thumbnail img {
     width: 100%;
     height: auto;
 }

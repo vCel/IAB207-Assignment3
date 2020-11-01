@@ -10,7 +10,7 @@ main = Blueprint('main', __name__)
 def index():
     auctions = Auction.query.all()
     send = []
-    for i in range(1,3):
+    for i in range(5):
         try:
             send.append(auctions[-i])
         except:
